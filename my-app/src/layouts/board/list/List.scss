@@ -1,0 +1,35 @@
+.list {
+   margin: 3em;
+   min-width: 20%;
+   align-items: center;
+   flex-direction: column;
+   display: flex;
+   min-height: 400px;
+   border: 2px solid #6ebbd3;
+   border-radius: 20px;
+   max-width: 333px;
+   &__title {
+      padding: 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #6ebbd3;
+      font-size: 17px;
+      width: 100%;
+      color: white;
+      margin-bottom: 1em;
+      border-radius: 18px 18px 0px 0px;
+
+      button {
+         background-color: #6ebbd3;
+         font-size: 20px;
+         padding: 0.3em;
+         color: white;
+      }
+   }
+   &__body {
+      min-height: 400px;
+      text-align: center;
+      width: 77%;
+   }
+}

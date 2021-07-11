@@ -1,0 +1,14 @@
+.projects {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    width: 80%;
+    justify-self: center;
+    grid-area: projects;
+    position: absolute;
+    right: 99px;
+    &__create-btn {
+        max-width: 20%;
+        padding: 1em;
+    }
+}

@@ -1,0 +1,46 @@
+.header__bar-btn {
+   display: block;
+   width: 30px;
+
+   height: 30px;
+   background-color: white;
+   border-radius: 50%;
+   position: relative;
+   &:hover {
+      cursor: pointer;
+   }
+   &--default,
+   &--default::before,
+   &--default::after {
+      position: absolute;
+      top: 50%;
+      width: 25px;
+      height: 3px;
+      left: 50%;
+      margin-top: -2px;
+      margin-left: -12px;
+      background-color: #6ebbd3;
+   }
+   &--default::before,
+   &--default::after {
+      content: "";
+      transition: 0.4s;
+   }
+   &--default::before {
+      content: "";
+      transform: translateY(-5px);
+   }
+   &--default::after {
+      transform: translateY(5px);
+   }
+   &__active:before {
+      transform: rotate(-45deg);
+      transform-origin: left bottom;
+      width: 10px;
+   }
+   &__active:after {
+      transform: rotate(45deg);
+      transform-origin: left top;
+      width: 10px;
+   }
+}

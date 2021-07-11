@@ -1,0 +1,9 @@
+.project-sort {
+   font-size: 22px;
+   display: flex;
+   padding: 1em;
+   &__name,
+   &__def {
+      cursor: pointer;
+   }
+}

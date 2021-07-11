@@ -1,0 +1,15 @@
+.header__menu {
+   display: flex;
+   justify-content: space-around;
+}
+.header__menu-link {
+   text-decoration: none;
+   color: black;
+   padding: 1em;
+   margin: 2px;
+}
+.header__menu-link:hover {
+   transition: 0.5s;
+   color: #6ebbd3;
+   transform: scale(0.9);
+}

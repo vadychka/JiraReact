@@ -1,0 +1,32 @@
+.btn {
+   padding: 0.5em 1em;
+   border: none;
+   color: white;
+   border-radius: 10px;
+   background-color: #6ebbd3;
+   &:hover {
+      cursor: pointer;
+      transition: 1s;
+      transform: scale(1.1);
+   }
+   &__left__def {
+      color: white;
+      border-radius: 10px;
+      background-color: #6ebbd3;
+      &:hover {
+         cursor: pointer;
+         transition: 1s;
+         transform: scale(1);
+      }
+   }
+   &__white {
+      margin-left: 1em;
+      background-color: white;
+      color: #6ebbd3;
+      &:hover {
+         cursor: pointer;
+         transition: 1s;
+         transform: scale(1);
+      }
+   }
+}

@@ -1,0 +1,29 @@
+.task {
+   color: chocolate;
+   text-align: center;
+   padding: 0.5em;
+   margin: 0.3em;
+   min-width: 77%;
+   word-wrap: break-word;
+   border-radius: 10px;
+   max-width: 300px;
+   &__details {
+      color: black;
+      padding: 0.3em;
+      background-color: #f2f2f2;
+      border-radius: 20px;
+      min-width: 77%;
+   }
+   &__low {
+      border: 2px solid green;
+   }
+   &__high {
+      border: 2px solid yellow;
+   }
+   &__urgent {
+      border: 2px solid red;
+   }
+   &__def {
+      border: 2px solid black;
+   }
+}

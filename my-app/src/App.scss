@@ -1,0 +1,23 @@
+.app__wrapper {
+   display: grid;
+   max-width: 1700px;
+   margin: 0 auto;
+   grid-template-rows: 60px 1fr;
+   grid-template-columns: 2fr 10fr;
+   grid-template-areas:
+      "header header"
+      "main main"
+      "projects projects";
+}
+
+.main {
+   display: flex;
+   position: relative;
+   flex-direction: row;
+   grid-area: main;
+}
+
+body {
+   position: relative;
+   overflow: overlay;
+}
