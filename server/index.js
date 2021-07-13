@@ -10,6 +10,7 @@ app.use(express.json())
 app.use('/projects', require('./routes/projects'));
 
 app.use('/board', require('./routes/board'));
+app.use('/board/drag', require('./routes/board'));
 
 
 app.listen(PORT, ()=> console.log(`server is starter in ....${PORT}`))

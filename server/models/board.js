@@ -15,27 +15,40 @@ let columns = [
     return columns
  }
 
- module.exports.addTasks = (task) => {
+ module.exports.addTasks = (data) => {
    
-  if(task){
-    console.log(task)
+  if(data){
     
     let tmp = 0;
     columns.map((data)=>{
-      data.tasks.map((el) => el.id > tmp ? tmp = el.tasks.id : ++tmp);
+      data.tasks.map((el) => {
+        if(el.id > tmp){
+          console.log(el.id)
+          tmp = el.id
+        }
+         else{
+           ++tmp
+         }
+      });
     });
-    
-    task.tasks.id = tmp;
-    const findColumn = columns.find((el)=> el.id === task.id,
+  
+     const newTask = {...data.tasks, id: tmp}
+   
+    const findColumn = columns.find((el)=> el.id === data.id,
     );
-    
-    findColumn.tasks.push(task.tasks);
+  
+  
+    findColumn.tasks.push(newTask);
+    return newTask
   }
  }
 
-//  module.exports.dropTasks = ({data, elId}) => {
-//   const findColumn = columns.find((el)=> el.id === elId,
-//   );
-//   findColumn.tasks= data
-   
-//  }
+ module.exports.dropTasks = (data) => {
+  
+   let source = data.source
+   let destination = data.destination
+  const findColumn = columns.find((el)=> el.id === destination,
+  );
+  findColumn.tasks = source
+   return source
+ }

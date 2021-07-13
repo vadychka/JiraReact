@@ -24,7 +24,9 @@ class BoardStore {
     destItems.splice(destination.index, 0, removed);
 
     sourceColumn.tasks = sourceItems;
+    this.pushDrop(sourceItems, source.droppableId);
     destColumn.tasks = destItems;
+    this.pushDrop(destItems, destination.droppableId);
   }
 
   dropBetweenTasks(source, destination) {
@@ -35,12 +37,12 @@ class BoardStore {
     items.splice(destination.index, 0, reorderedItem);
 
     userTask.tasks = items;
-    // this.pushDrop(items, destination.droppableId);
+    this.pushDrop(items, destination.droppableId);
   }
 
-  // async pushDrop(items, id) {
-  //   await dropTasks(items, id);
-  // }
+  async pushDrop(items, id) {
+    await dropTasks(items, id);
+  }
 
   setProjects(value) {
     this.projects = value;
@@ -57,12 +59,13 @@ class BoardStore {
     }
   }
 
-  postTask(data, elId) {
-    setTasks(data, elId);
-    if (data) {
-      const findColumn = this.columns.find((el)=> el.id === elId,
+  async postTask(data, colId) {
+    const newTask = await setTasks(data, colId);
+    console.log(newTask);
+    if (newTask) {
+      const findColumn = this.columns.find((el)=> el.id === colId,
       );
-      findColumn.tasks.push(data);
+      findColumn.tasks.push(newTask);
     }
   }
 
@@ -72,10 +75,6 @@ class BoardStore {
     this.setColumns(resTasks);
     this.setProjects(res);
   }
-  // addProject(data) {
-  //   getProjects();
-  //   this.projects.push(data);
-  // }
 }
 
 export default new BoardStore();
