@@ -14,19 +14,17 @@ router.get('/', (req,res)=> {
       }
    }
    catch(ex){
-      res.status(500).json({error:'Internal get error server'})
+      res.status(500).json({error:'Internal error server'})
    }
 })
 
 router.post('/', (req, res) => {
    try{
       const task = req.body
-      let result = Columns.addTasks(task)
+      let result = Columns.addTask(task)
 
       if(result){
-         
          res.status(200).json(result)
-         
       }
       else{
          res.status(400).json('invalid input')
@@ -37,10 +35,10 @@ router.post('/', (req, res) => {
    }
 })
 
-router.post('/drag', (req, res) => {
+router.patch('/drag', (req, res) => {
    try{
       const task = req.body
-      let result = Columns.dropTasks(task)
+      let result = Columns.changePositionTask(task)
       
       if(result){
          res.status(200).json(result)
@@ -50,7 +48,7 @@ router.post('/drag', (req, res) => {
       }
    }
    catch(ex){
-      res.status(500).json({error:'Internal drop error server'})
+      res.status(500).json({error:'Internal error server'})
    }
 })
 

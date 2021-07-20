@@ -15,35 +15,27 @@ let columns = [
     return columns
  }
 
- module.exports.addTasks = (data) => {
+ module.exports.addTask = (data) => {
    
   if(data){
     
     let tmp = 0;
     columns.map((data)=>{
+     
       data.tasks.map((el) => {
-        if(el.id > tmp){
-          console.log(el.id)
-          tmp = el.id
-        }
-         else{
-           ++tmp
-         }
+        el.id > tmp ? tmp = el.id : ++tmp
       });
     });
   
-     const newTask = {...data.tasks, id: tmp}
-   
-    const findColumn = columns.find((el)=> el.id === data.id,
+    const newTask = {...data.tasks, id: tmp}
+    const eventColumn = columns.find((el)=> el.id === data.id,
     );
-  
-  
-    findColumn.tasks.push(newTask);
+    eventColumn.tasks.push(newTask);
     return newTask
   }
  }
 
- module.exports.dropTasks = (data) => {
+ module.exports.changePositionTask = (data) => {
   
    let source = data.source
    let destination = data.destination

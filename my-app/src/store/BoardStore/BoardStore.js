@@ -1,15 +1,21 @@
 import {getProjects} from 'api';
-import {dropTasks, getTasks, setTasks} from 'api/board';
+import {changeTask, getTasks, setTask} from 'api/board';
 import {pushProject} from 'api/projects';
 import {makeAutoObservable} from 'mobx';
 
 class BoardStore {
   columns = []
   projects = []
+  Routs = {
+    'projects': '/projects',
+    'dashboards': '/content',
+    'RegisterNewUser': './RegisterNewUser',
+  };
+
+  users= []
 
   constructor() {
     makeAutoObservable(this);
-
     this.getInitData();
   }
 
@@ -24,9 +30,9 @@ class BoardStore {
     destItems.splice(destination.index, 0, removed);
 
     sourceColumn.tasks = sourceItems;
-    this.pushDrop(sourceItems, source.droppableId);
+    this.changePriority(sourceItems, source.droppableId);
     destColumn.tasks = destItems;
-    this.pushDrop(destItems, destination.droppableId);
+    this.changePriority(destItems, destination.droppableId);
   }
 
   dropBetweenTasks(source, destination) {
@@ -37,11 +43,11 @@ class BoardStore {
     items.splice(destination.index, 0, reorderedItem);
 
     userTask.tasks = items;
-    this.pushDrop(items, destination.droppableId);
+    this.changePriority(items, destination.droppableId);
   }
 
-  async pushDrop(items, id) {
-    await dropTasks(items, id);
+  async changePriority(items, id) {
+    await changeTask(items, id);
   }
 
   setProjects(value) {
@@ -52,6 +58,11 @@ class BoardStore {
     this.columns = value;
   }
 
+  setNewUser(data) {
+    this.users.push(data);
+    console.log(data);
+  }
+
   async postProject(data) {
     const project = await pushProject(data);
     if (project) {
@@ -60,8 +71,7 @@ class BoardStore {
   }
 
   async postTask(data, colId) {
-    const newTask = await setTasks(data, colId);
-    console.log(newTask);
+    const newTask = await setTask(data, colId);
     if (newTask) {
       const findColumn = this.columns.find((el)=> el.id === colId,
       );

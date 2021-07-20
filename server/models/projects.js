@@ -9,7 +9,9 @@ module.exports.addProject = (project) => {
    if(project){
       const newProject = {
          ...project, id: id
+      
       }
+      {console.log(id)}
       projects.push(newProject)
       return newProject
    }
