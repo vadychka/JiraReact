@@ -7,7 +7,7 @@ export const getTasks = async () => {
   return res?.data;
 };
 
-export const setTask = async (tasks, id) => {
+export const createTask = async (tasks, id) => {
   const res = await axios.post(`${basicURL}/${boardRoute}`, {tasks, id});
   return res?.data;
 };

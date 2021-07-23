@@ -5,13 +5,14 @@ import './Appp.scss';
 import CreateTask from 'layouts/board/createTask/CreateTask';
 import Projects from 'layouts/projects';
 import CreateProject from 'layouts/projects/createProject/CreateProject';
-import RegisterNewUser from 'layouts/registerNewUser';
+import Register from 'layouts/register';
 import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
 } from 'react-router-dom';
+import {Routes} from 'utils';
 
 import Board from './layouts/board';
 import Header from './layouts/header/Header';
@@ -21,7 +22,7 @@ function App() {
   const [popUpActive, setPopUpActive] = useState(null);
   const [isActive, setIsActive] = useState(false);
   const [popUpProject, setPopUpProject] = useState(null);
-  // const [registerFormActive, setRegisterForm] = useState(null);
+
 
   return (
     <Router>
@@ -30,12 +31,13 @@ function App() {
         <div className="main">
           <SideBar isActive={isActive}></SideBar>
           <Switch>
-            <Route path='/RegisterNewUser'
-              render={()=> <RegisterNewUser></RegisterNewUser>}></Route>
-            <Route path='/content'
+
+            <Route path={Routes.register}
+              render={()=> <Register></Register>}></Route>
+            <Route path={Routes.dashboards}
               render={()=> <Board setActive={setPopUpActive}></Board>}>
             </Route>
-            <Route path='/projects'
+            <Route path={Routes.projects}
               render={()=> <Projects setActive={setPopUpProject}>
               </Projects>}></Route>
 

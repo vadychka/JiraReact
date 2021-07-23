@@ -2,11 +2,14 @@ import './Header.scss';
 import './index';
 
 import {logo} from 'assets';
+import {observer} from 'mobx-react-lite';
 import React from 'react';
+import UsersStore from 'store/BoardStore/UsersStore';
 
 import HeaderBarBtn from './headerBtnBar/HeaderBarBtn';
 import HeaderLoginAndRegister from
   './headerLoginAndRegister/HeaderLoginAndRegister';
+import HeaderLogOut from './headerLogOut/HeaderLogOut';
 import HeaderMenu from './headerMenu/HeaderMenu';
 
 const Header = ({setIsActive}) => {
@@ -20,8 +23,8 @@ const Header = ({setIsActive}) => {
         className="header__search"
         placeholder="&#128270;   Search"
       />
-      <HeaderLoginAndRegister />
+      {UsersStore.users ? <HeaderLoginAndRegister /> : <HeaderLogOut/>}
     </div>
   );
 };
-export default Header;
+export default observer(Header);

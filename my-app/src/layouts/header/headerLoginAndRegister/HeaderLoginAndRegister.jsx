@@ -5,20 +5,20 @@ import {Button} from 'components';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {BoardStore} from 'store/BoardStore';
+import {Routes} from 'utils';
 
 
 const HeaderLoginAndRegister = () => {
   return (
     <div className="header__navigation">
-      <Link to={BoardStore.Routs.RegisterNewUser}>
+      <Link to={Routes.register}>
         <Button style={BTN__WHITE}>
         Registration
         </Button>
       </Link>
 
       <Button style={BTN__DEFAULT}>
-        <Link to={BoardStore.Routs.RegisterNewUser}>
+        <Link to={Routes.register}>
         Log in
         </Link></Button>
     </div>

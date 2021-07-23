@@ -1,18 +1,9 @@
-import {getProjects} from 'api';
-import {changeTask, getTasks, setTask} from 'api/board';
-import {pushProject} from 'api/projects';
+
+import {changeTask, createTask, getTasks} from 'api/board';
 import {makeAutoObservable} from 'mobx';
 
 class BoardStore {
   columns = []
-  projects = []
-  Routs = {
-    'projects': '/projects',
-    'dashboards': '/content',
-    'RegisterNewUser': './RegisterNewUser',
-  };
-
-  users= []
 
   constructor() {
     makeAutoObservable(this);
@@ -50,28 +41,12 @@ class BoardStore {
     await changeTask(items, id);
   }
 
-  setProjects(value) {
-    this.projects = value;
-  }
-
   setColumns(value) {
     this.columns = value;
   }
 
-  setNewUser(data) {
-    this.users.push(data);
-    console.log(data);
-  }
-
-  async postProject(data) {
-    const project = await pushProject(data);
-    if (project) {
-      this.projects.push(project);
-    }
-  }
-
   async postTask(data, colId) {
-    const newTask = await setTask(data, colId);
+    const newTask = await createTask(data, colId);
     if (newTask) {
       const findColumn = this.columns.find((el)=> el.id === colId,
       );
@@ -80,10 +55,8 @@ class BoardStore {
   }
 
   async getInitData() {
-    const res = await getProjects();
     const resTasks = await getTasks();
     this.setColumns(resTasks);
-    this.setProjects(res);
   }
 }
 

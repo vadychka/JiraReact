@@ -16,7 +16,8 @@ let columns = [
  }
 
  module.exports.addTask = (data) => {
-   
+   const {tasks, id} = data
+
   if(data){
     
     let tmp = 0;
@@ -27,10 +28,10 @@ let columns = [
       });
     });
   
-    const newTask = {...data.tasks, id: tmp}
-    const eventColumn = columns.find((el)=> el.id === data.id,
+    const newTask = {...tasks, id: tmp}
+    const selectedColumn  = columns.find((el)=> el.id === id,
     );
-    eventColumn.tasks.push(newTask);
+    selectedColumn.tasks.push(newTask);
     return newTask
   }
  }
@@ -39,8 +40,8 @@ let columns = [
   
    let source = data.source
    let destination = data.destination
-  const findColumn = columns.find((el)=> el.id === destination,
+  const selectedColumn = columns.find((el)=> el.id === destination,
   );
-  findColumn.tasks = source
+  selectedColumn.tasks = source
    return source
  }

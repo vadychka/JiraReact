@@ -3,7 +3,7 @@ import './Projects.scss';
 import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
-import {BoardStore} from 'store/BoardStore';
+import ProjectsStore from 'store/BoardStore/ProjectsStore';
 
 import Project from './project';
 import ProjectSort from './projectSort/ProjectSort';
@@ -18,7 +18,7 @@ const Projects = ({setActive}) => {
         >Add Project</Button>
       </div>
 
-      {BoardStore.projects.map((el, index)=>{
+      {ProjectsStore.projects.map((el, index)=>{
         return <Project key={index} title={el.title}
           details={el.details}></Project>;
       })}

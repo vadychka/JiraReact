@@ -2,7 +2,7 @@ import './HeaderMenu.scss';
 
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {BoardStore} from 'store/BoardStore';
+import {Routes} from 'utils';
 
 
 const HeaderMenu = () => {
@@ -11,13 +11,13 @@ const HeaderMenu = () => {
       <a href="#1" className="header__menu-link">
         Your work
       </a>
-      <Link to={BoardStore.Routs.projects} className="header__menu-link">
+      <Link to={Routes.projects} className="header__menu-link">
         Projects
       </Link>
       <a href="#3" className="header__menu-link">
         Filters
       </a>
-      <Link to={BoardStore.Routs.dashboards} className="header__menu-link">
+      <Link to={Routes.dashboards} className="header__menu-link">
         Dashboards
       </Link>
       <a href="#5" className="header__menu-link">

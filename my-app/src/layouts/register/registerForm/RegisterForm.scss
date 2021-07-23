@@ -1,0 +1,22 @@
+.register-form {
+   display: flex;
+   align-items: center;
+   border: 2px solid black;
+   border-radius: 10px;
+   padding: 1em;
+   &__title {
+      display: flex;
+      justify-content: space-between;
+      color: brown;
+      font-size: 17px;
+   }
+   &__inp {
+      padding: 1em;
+      margin: 1em 0em;
+      border-radius: 9px;
+   }
+   &__error {
+      font-size: 12px;
+      color: red;
+   }
+}

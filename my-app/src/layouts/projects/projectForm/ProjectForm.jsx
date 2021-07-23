@@ -3,7 +3,7 @@ import './ProjectForm.scss';
 import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {useForm} from 'react-hook-form';
-import {BoardStore} from 'store/BoardStore';
+import ProjectsStore from 'store/BoardStore/ProjectsStore';
 
 import {detailsTaskValidation, titleTaskValidation} from './validation';
 
@@ -17,7 +17,7 @@ const ProjectForm = (active) => {
   return <form
     className="project-form"
     onSubmit={handleSubmit((data) => {
-      BoardStore.postProject(data, active);
+      ProjectsStore.postProject(data, active);
     })}
   >
     <div>
