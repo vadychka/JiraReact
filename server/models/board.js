@@ -1,3 +1,5 @@
+let boards = []
+
 let columns = [
    {id: 'id111',
      name: 'To do',
@@ -9,13 +11,20 @@ let columns = [
      name: 'Done',
      tasks: []},
  ]
+module.exports.createBoard = (ProjectId) => {
+  const newBoard = {
+    columns, ProjectId
+  }
+  boards.push(newBoard)
+}
 
-
- module.exports.getTasks = () => {
-    return columns
+ module.exports.getTasks = (ProjectId) => {
+   const selectBoard = boards.find((el)=> el.ProjectId === ProjectId)
+   return selectBoard.columns
  }
 
  module.exports.addTask = (data) => {
+   console.log(data)
    const {tasks, id} = data
 
   if(data){

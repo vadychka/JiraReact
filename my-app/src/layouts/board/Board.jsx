@@ -3,11 +3,16 @@ import './Board.scss';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {DragDropContext} from 'react-beautiful-dnd';
+import {useHistory} from 'react-router';
 import {BoardStore} from 'store/BoardStore';
 
 import List from './list/List';
 
 const Board = ({setActive}) => {
+  const history= useHistory();
+  // if (BoardStore.columns) {
+  //   history.push('/projects');
+  // }
   const changeTasks = (source, destination) => {
     if (!destination) return;
     else if (source.droppableId !== destination.droppableId) {

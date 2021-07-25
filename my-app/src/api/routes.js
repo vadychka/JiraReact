@@ -4,3 +4,5 @@ export const basicURL = `http://localhost:${serverPort}`;
 export const projectsRout = 'projects';
 
 export const boardRoute = 'board';
+
+export const usersRoute = 'users';

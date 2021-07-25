@@ -4,10 +4,11 @@ import {makeAutoObservable} from 'mobx';
 
 class BoardStore {
   columns = []
+  projectId = ''
 
   constructor() {
     makeAutoObservable(this);
-    this.getInitData();
+    // this.getInitData();
   }
 
   dropBetweenColumns(source, destination) {
@@ -46,7 +47,7 @@ class BoardStore {
   }
 
   async postTask(data, colId) {
-    const newTask = await createTask(data, colId);
+    const newTask = await createTask(data, colId, this.projectId);
     if (newTask) {
       const findColumn = this.columns.find((el)=> el.id === colId,
       );
@@ -54,10 +55,15 @@ class BoardStore {
     }
   }
 
-  async getInitData() {
-    const resTasks = await getTasks();
+  async getBoard(projectId) {
+    const resTasks = await getTasks(projectId);
     this.setColumns(resTasks);
   }
+
+  // async getInitData() {
+  //   const resTasks = await getTasks(this.projectId);
+  //   this.setColumns(resTasks);
+  // }
 }
 
 export default new BoardStore();

@@ -20,7 +20,7 @@ const Projects = ({setActive}) => {
 
       {ProjectsStore.projects.map((el, index)=>{
         return <Project key={index} title={el.title}
-          details={el.details}></Project>;
+          details={el.details} projectId={el.ProjectId}></Project>;
       })}
     </div>
   );
