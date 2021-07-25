@@ -2,6 +2,7 @@ const {Router}=  require('express')
 const router =Router()
 const Projects = require('../models/projects')
 
+
 router.get('/', (req,res)=>{
    try{
       let result =  Projects.getAllProjects()

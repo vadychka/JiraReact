@@ -3,4 +3,4 @@ export const basicURL = `http://localhost:${serverPort}`;
 
 export const projectsRout = 'projects';
 
-export const boardRout = 'board';
+export const boardRoute = 'board';

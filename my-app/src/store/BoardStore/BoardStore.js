@@ -1,15 +1,12 @@
-import {getProjects} from 'api';
-import {dropTasks, getTasks, setTasks} from 'api/board';
-import {pushProject} from 'api/projects';
+
+import {changeTask, createTask, getTasks} from 'api/board';
 import {makeAutoObservable} from 'mobx';
 
 class BoardStore {
   columns = []
-  projects = []
 
   constructor() {
     makeAutoObservable(this);
-
     this.getInitData();
   }
 
@@ -24,7 +21,9 @@ class BoardStore {
     destItems.splice(destination.index, 0, removed);
 
     sourceColumn.tasks = sourceItems;
+    this.changePriority(sourceItems, source.droppableId);
     destColumn.tasks = destItems;
+    this.changePriority(destItems, destination.droppableId);
   }
 
   dropBetweenTasks(source, destination) {
@@ -35,47 +34,30 @@ class BoardStore {
     items.splice(destination.index, 0, reorderedItem);
 
     userTask.tasks = items;
-    // this.pushDrop(items, destination.droppableId);
+    this.changePriority(items, destination.droppableId);
   }
 
-  // async pushDrop(items, id) {
-  //   await dropTasks(items, id);
-  // }
-
-  setProjects(value) {
-    this.projects = value;
+  async changePriority(items, id) {
+    await changeTask(items, id);
   }
 
   setColumns(value) {
     this.columns = value;
   }
 
-  async postProject(data) {
-    const project = await pushProject(data);
-    if (project) {
-      this.projects.push(project);
-    }
-  }
-
-  postTask(data, elId) {
-    setTasks(data, elId);
-    if (data) {
-      const findColumn = this.columns.find((el)=> el.id === elId,
+  async postTask(data, colId) {
+    const newTask = await createTask(data, colId);
+    if (newTask) {
+      const findColumn = this.columns.find((el)=> el.id === colId,
       );
-      findColumn.tasks.push(data);
+      findColumn.tasks.push(newTask);
     }
   }
 
   async getInitData() {
-    const res = await getProjects();
     const resTasks = await getTasks();
     this.setColumns(resTasks);
-    this.setProjects(res);
   }
-  // addProject(data) {
-  //   getProjects();
-  //   this.projects.push(data);
-  // }
 }
 
 export default new BoardStore();

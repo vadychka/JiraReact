@@ -29,6 +29,7 @@ const List = ({props, setActive, tasks, list}) => {
             {tasks.map((data, index) => {
               return (
                 <ListBody details={data.details} title={data.title}
+                  key={data.id}
                   priority={data.priority} index={index} id={data.id + 'id'}
                 ></ListBody>
               );

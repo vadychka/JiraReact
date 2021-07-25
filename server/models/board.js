@@ -15,27 +15,33 @@ let columns = [
     return columns
  }
 
- module.exports.addTasks = (task) => {
-   
-  if(task){
-    console.log(task)
+ module.exports.addTask = (data) => {
+   const {tasks, id} = data
+
+  if(data){
     
     let tmp = 0;
     columns.map((data)=>{
-      data.tasks.map((el) => el.id > tmp ? tmp = el.tasks.id : ++tmp);
+     
+      data.tasks.map((el) => {
+        el.id > tmp ? tmp = el.id : ++tmp
+      });
     });
-    
-    task.tasks.id = tmp;
-    const findColumn = columns.find((el)=> el.id === task.id,
+  
+    const newTask = {...tasks, id: tmp}
+    const selectedColumn  = columns.find((el)=> el.id === id,
     );
-    
-    findColumn.tasks.push(task.tasks);
+    selectedColumn.tasks.push(newTask);
+    return newTask
   }
  }
 
-//  module.exports.dropTasks = ({data, elId}) => {
-//   const findColumn = columns.find((el)=> el.id === elId,
-//   );
-//   findColumn.tasks= data
-   
-//  }
+ module.exports.changePositionTask = (data) => {
+  
+   let source = data.source
+   let destination = data.destination
+  const selectedColumn = columns.find((el)=> el.id === destination,
+  );
+  selectedColumn.tasks = source
+   return source
+ }
