@@ -1,5 +1,7 @@
+const generateId = require('./../helpers/idGenerator')
+const Boards = require('./board')
+
 const projects = [];
-const id = 0
 
 module.exports.getAllProjects = () => {
    return projects
@@ -8,8 +10,10 @@ module.exports.getAllProjects = () => {
 module.exports.addProject = (project) => {
    if(project){
       const newProject = {
-         ...project, id: id
+         ...project, ProjectId: generateId.generateUniqueId()
       }
+      Boards.createBoard(newProject.ProjectId)
+
       projects.push(newProject)
       return newProject
    }

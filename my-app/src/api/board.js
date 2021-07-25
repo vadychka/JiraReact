@@ -2,13 +2,15 @@ import axios from 'axios';
 
 import {basicURL, boardRoute} from './routes';
 
-export const getTasks = async () => {
-  const res = await axios.get(`${basicURL}/${boardRoute}`);
+export const getTasks = async (projectId) => {
+  const res = await axios.get(`${basicURL}/${boardRoute}`, projectId);
+  console.log(projectId);
   return res?.data;
 };
 
-export const createTask = async (tasks, id) => {
-  const res = await axios.post(`${basicURL}/${boardRoute}`, {tasks, id});
+export const createTask = async (tasks, id, boardId) => {
+  const res = await axios.post(`${basicURL}/${boardRoute}`,
+      {tasks, id, boardId});
   return res?.data;
 };
 

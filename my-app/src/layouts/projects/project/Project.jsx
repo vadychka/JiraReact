@@ -11,10 +11,13 @@ const Routs = {
 import {ACCORDION__SHOW} from 'layouts/header/headerBtnBar';
 import {observer} from 'mobx-react-lite';
 import {useState} from 'react';
+import {BoardStore} from 'store/BoardStore';
 
-const Project = ({title, details}) => {
+const Project = ({title, details, projectId}) => {
   const [showTitle, setShowTitle] = useState(false);
   const onclick = () => {
+    BoardStore.projectId = projectId;
+    BoardStore.getBoard(projectId);
     if (showTitle) {
       return setShowTitle(false);
     }
