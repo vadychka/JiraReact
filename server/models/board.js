@@ -1,56 +1,53 @@
+const generateId = require('./../helpers/idGenerator')
+
 let boards = []
 
-let columns = [
-   {id: 'id111',
-     name: 'To do',
-     tasks: []},
-   {id: 'id222',
-     name: 'Review',
-     tasks: []},
-   {id: 'id333',
-     name: 'Done',
-     tasks: []},
- ]
 module.exports.createBoard = (ProjectId) => {
+  let columns = [
+    {id: 'id111',
+      name: 'To do',
+      tasks: []},
+    {id: 'id222',
+      name: 'Review',
+      tasks: []},
+    {id: 'id333',
+      name: 'Done',
+      tasks: []},
+  ]
   const newBoard = {
+    
     columns, ProjectId
   }
   boards.push(newBoard)
 }
 
- module.exports.getTasks = (ProjectId) => {
-   const selectBoard = boards.find((el)=> el.ProjectId === ProjectId)
+ module.exports.getTasks = (projectId) => {
+  const selectBoard  = boards.find((el)=> el.ProjectId === +projectId,
+    );
    return selectBoard.columns
  }
 
  module.exports.addTask = (data) => {
-   console.log(data)
-   const {tasks, id} = data
-
-  if(data){
-    
-    let tmp = 0;
-    columns.map((data)=>{
-     
-      data.tasks.map((el) => {
-        el.id > tmp ? tmp = el.id : ++tmp
-      });
-    });
   
-    const newTask = {...tasks, id: tmp}
-    const selectedColumn  = columns.find((el)=> el.id === id,
-    );
+   const {tasks, id, boardId} = data
+  
+  if(data){
+    const selectedBoard = boards.find((el) => el.ProjectId === boardId)
+
+    const newTask = {...tasks, id: generateId.generateUniqueId()}
+    const selectedColumn  = selectedBoard.columns.find((el)=> el.id === id);
     selectedColumn.tasks.push(newTask);
+
+    
     return newTask
   }
  }
 
  module.exports.changePositionTask = (data) => {
-  
+  const selectedBoard = boards.find(el => el.ProjectId === data.columnId)
    let source = data.source
    let destination = data.destination
-  const selectedColumn = columns.find((el)=> el.id === destination,
-  );
+  const selectedColumn = selectedBoard.columns.find((el)=> el.id === destination);
   selectedColumn.tasks = source
    return source
  }

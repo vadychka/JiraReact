@@ -7,19 +7,20 @@ const PORT = 5000;
 
 const mongoUrl = 'mongodb+srv://vadychka:Gy3uq7JGXw5QKkf@cluster0.yfn5w.mongodb.net/Cluster0?retryWrites=true&w=majority'
 
- app.use(cors())
+app.use(cors())
 app.use(express.json())
 
 app.use('/projects', require('./routes/projects'));
 
+app.use('/users', require('./routes/users'));
+
 app.use('/board', require('./routes/board'));
-
-// app.use('/users', require('./routes/users'));
-
 
 async function start () {
    try{
-      await mongoose.connect(mongoUrl, {useNewUrlParser:true, useUnifiedTopology: true})   
+      await mongoose.connect(mongoUrl,
+       {useNewUrlParser:true,
+        useUnifiedTopology: true})   
       app.listen(PORT, ()=> console.log(`server is starter in ....${PORT}`))
       
    }

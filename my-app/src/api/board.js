@@ -3,8 +3,7 @@ import axios from 'axios';
 import {basicURL, boardRoute} from './routes';
 
 export const getTasks = async (projectId) => {
-  const res = await axios.get(`${basicURL}/${boardRoute}`, projectId);
-  console.log(projectId);
+  const res = await axios.get(`${basicURL}/${boardRoute}/${projectId}`);
   return res?.data;
 };
 
@@ -15,9 +14,9 @@ export const createTask = async (tasks, id, boardId) => {
 };
 
 
-export const changeTask = async (source, destination) => {
+export const changeTask = async (source, destination, columnId) => {
   const res = await axios.patch(`${basicURL}/${boardRoute}/drag`,
-      {source, destination});
+      {source, destination, columnId});
   return res?.data;
 };
 

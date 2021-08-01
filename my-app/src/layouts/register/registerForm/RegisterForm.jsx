@@ -6,7 +6,7 @@ import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {useForm} from 'react-hook-form';
-import UsersStore from 'store/BoardStore/UsersStore';
+import UserStore from 'store/BoardStore/UserStore';
 
 import {emailReg, nameReg, passwordReg} from './validation';
 
@@ -15,7 +15,7 @@ const RegisterForm = () => {
     formState: {errors}} = useForm();
   return (
     <form onSubmit={handleSubmit((data)=> {
-      UsersStore.createUser(data);
+      UserStore.createUser(data);
     })}>
       <fieldset className='register-form'>
         <legend>Registration form</legend>
@@ -44,6 +44,7 @@ const RegisterForm = () => {
           {...register('password', passwordReg )}></input>
 
         <Button style={BTN__DEFAULT}>Registration</Button>
+
       </fieldset>
     </form>
 

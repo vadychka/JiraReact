@@ -1,0 +1,22 @@
+.log-in {
+   display: flex;
+   padding: 1em;
+   background: black;
+   border-radius: 20px;
+   position: absolute;
+   z-index: 111;
+   transition: 1s;
+   top: 1%;
+   right: 1%;
+   &__active {
+      top: -1000%;
+      transition: 0.5s;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.4);
+      width: 0vw;
+      right: 1%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+   }
+}
