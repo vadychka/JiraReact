@@ -1,4 +1,4 @@
-import {createUserBack, getUser} from '../../api/users';
+import {addUser, getUser} from '../../api/users';
 
 const {makeAutoObservable} = require('mobx');
 
@@ -27,7 +27,7 @@ class UserStore {
    }
 
    async createUser(data) {
-     await createUserBack(data);
+     await addUser(data);
    }
 }
 

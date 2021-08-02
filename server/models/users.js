@@ -8,13 +8,12 @@ module.exports.getUser = (name, password) => {
    const selectUser = users.find(el => el.name === name);
    if(selectUser){
       if(selectUser.password === password){
-         console.log(selectUser)
          return selectUser
       }else{
-         return 'password'
+         return null
       }
    }else{
-      return 'login'
+      return null
    }
 }
 module.exports.createUser = (user)  => {

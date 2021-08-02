@@ -9,6 +9,7 @@ import Register from 'layouts/register';
 import React, {useState} from 'react';
 import {
   BrowserRouter as Router,
+  Redirect,
   Route,
   Switch,
 } from 'react-router-dom';
@@ -40,7 +41,7 @@ function App() {
             <Route path={Routes.projects}
               render={()=> <Projects setActive={setPopUpProject}>
               </Projects>}></Route>
-
+            <Redirect path={Routes.register}></Redirect>
           </Switch>
 
         </div>

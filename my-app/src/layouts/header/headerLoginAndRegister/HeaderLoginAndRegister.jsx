@@ -8,7 +8,7 @@ import {Link} from 'react-router-dom';
 import {Routes} from 'utils';
 
 
-const HeaderLoginAndRegister = ({activeLogin}) => {
+const HeaderLoginAndRegister = ({setActiveLogin}) => {
   return (
     <div className="header__navigation">
       <Link to={Routes.register}>
@@ -17,7 +17,7 @@ const HeaderLoginAndRegister = ({activeLogin}) => {
         </Button>
       </Link>
 
-      <Button style={BTN__DEFAULT} onClickBtn={()=>activeLogin(111)}>
+      <Button style={BTN__DEFAULT} onClickBtn={()=>setActiveLogin(111)}>
         Log in
       </Button>
     </div>

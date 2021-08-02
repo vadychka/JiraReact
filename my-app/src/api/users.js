@@ -7,7 +7,7 @@ export const getUser = async (name, password) => {
   return res?.data;
 };
 
-export const createUserBack = async (data) => {
+export const addUser = async (data) => {
   const res = await axios.post(`${basicURL}/${usersRoute}`, data);
   return res?.data;
 };

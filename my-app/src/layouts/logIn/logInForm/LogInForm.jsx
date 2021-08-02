@@ -11,6 +11,7 @@ import {nameReg, passwordReg} from './validation';
 const LogInForm = () => {
   const {register, handleSubmit,
     formState: {errors}} = useForm();
+
   return (
     <form className='login-form'
       onSubmit={handleSubmit((data) => {
@@ -22,7 +23,7 @@ const LogInForm = () => {
         <p className='login-form__error'>{errors?.name?.message}</p>
       </div>
       <input type='text'
-        className='login-form__inp'
+        className='login-form__field'
         placeholder='write your name'
         {...register('name', nameReg)}>
       </input>
@@ -32,7 +33,7 @@ const LogInForm = () => {
         <p className='login-form__error'>{errors?.password?.message}</p>
       </div>
       <input type='text'
-        className='login-form__inp'
+        className='login-form__field'
         placeholder='write your password'
         {...register('password', passwordReg)}>
       </input>

@@ -14,7 +14,7 @@ import HeaderLogOut from './headerLogOut/HeaderLogOut';
 import HeaderMenu from './headerMenu/HeaderMenu';
 
 const Header = ({setIsActive}) => {
-  const [showLogin, activeLogin] = useState(null);
+  const [showLogin, setActiveLogin] = useState(null);
   return (
     <div className="header">
       <HeaderBarBtn onClick={setIsActive}></HeaderBarBtn>
@@ -26,7 +26,7 @@ const Header = ({setIsActive}) => {
         placeholder="&#128270;   Search"
       />
       {!UsersStore.user.length ? <HeaderLoginAndRegister
-        activeLogin={activeLogin}>
+        activeLogin={setActiveLogin}>
       </HeaderLoginAndRegister> : <HeaderLogOut/>}
       <LogIn showLogin={showLogin}></LogIn>
     </div>
