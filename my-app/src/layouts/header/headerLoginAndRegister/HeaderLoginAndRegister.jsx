@@ -17,9 +17,11 @@ const HeaderLoginAndRegister = ({setActiveLogin}) => {
         </Button>
       </Link>
 
-      <Button style={BTN__DEFAULT} onClickBtn={()=>setActiveLogin(111)}>
+      <Link to={Routes.login}>
+        <Button style={BTN__DEFAULT} >
         Log in
-      </Button>
+        </Button>
+      </Link>
     </div>
   );
 };

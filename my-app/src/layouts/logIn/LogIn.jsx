@@ -3,9 +3,9 @@ import './LogIn.scss';
 import LogInForm from './logInForm/LogInForm';
 
 
-const LogIn = ({showLogin}) => {
+const LogIn = () => {
   return (
-    <div className={showLogin? 'log-in' : 'log-in__active'}>
+    <div className='log-in'>
       <LogInForm></LogInForm>
     </div>
   );

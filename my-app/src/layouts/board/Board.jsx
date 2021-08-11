@@ -35,8 +35,8 @@ const Board = ({setActive}) => {
       <div className="content" >
         {BoardStore.columns.map((el) =>{
           return <List
-            setActive={setActive} key={el.id}
-            props={el.name} tasks={el.tasks} list={el}></List>;
+            setActive={setActive} key={el._id}
+            props={el.title} tasks={el.tasks} list={el}></List>;
         })}
       </div>
     </DragDropContext>

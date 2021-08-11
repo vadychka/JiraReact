@@ -3,6 +3,7 @@ import 'constants';
 import './Appp.scss';
 
 import CreateTask from 'layouts/board/createTask/CreateTask';
+import LogIn from 'layouts/logIn/LogIn';
 import Projects from 'layouts/projects';
 import CreateProject from 'layouts/projects/createProject/CreateProject';
 import Register from 'layouts/register';
@@ -33,6 +34,8 @@ function App() {
           <SideBar isActive={isActive}></SideBar>
           <Switch>
 
+            <Route path={Routes.login}
+              render={()=><LogIn></LogIn>}></Route>
             <Route path={Routes.register}
               render={()=> <Register></Register>}></Route>
             <Route path={Routes.dashboards}
@@ -42,6 +45,7 @@ function App() {
               render={()=> <Projects setActive={setPopUpProject}>
               </Projects>}></Route>
             <Redirect path={Routes.register}></Redirect>
+
           </Switch>
 
         </div>

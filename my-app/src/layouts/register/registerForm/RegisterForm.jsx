@@ -24,7 +24,7 @@ const RegisterForm = () => {
           <p className='register-form__error'>{errors?.name?.message}</p>
         </div>
         <input type="text" placeholder='write here'
-          className='register-form__inp'
+          className='register-form__field'
           {...register('name', nameReg )}></input>
 
         <div className='register-form__title'>
@@ -32,7 +32,7 @@ const RegisterForm = () => {
           <p className='register-form__error'>{errors?.email?.message}</p>
         </div>
         <input type="text" placeholder='write here'
-          className='register-form__inp'
+          className='register-form__field'
           {...register('email', emailReg )}></input>
 
         <div className='register-form__title'>
@@ -40,7 +40,7 @@ const RegisterForm = () => {
           <p className='register-form__error'>{errors?.password?.message}</p>
         </div>
         <input type="text" placeholder='write here'
-          className='register-form__inp'
+          className='register-form__field'
           {...register('password', passwordReg )}></input>
 
         <Button style={BTN__DEFAULT}>Registration</Button>

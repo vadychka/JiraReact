@@ -14,7 +14,7 @@ const List = ({props, setActive, tasks, list}) => {
         </h2>
         <button
           onClick={() => {
-            setActive({id: list.id});
+            setActive({id: list._id});
           }}
         >
           +

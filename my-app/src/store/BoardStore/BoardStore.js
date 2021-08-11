@@ -61,7 +61,7 @@ class BoardStore {
 
   async getBoard(projectId) {
     const resTasks = await getTasks(projectId);
-    this.setColumns(resTasks);
+    this.setColumns(resTasks.column);
   }
 
   // async getInitData() {
