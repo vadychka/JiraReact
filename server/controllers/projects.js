@@ -2,9 +2,6 @@ const { generateUniqueId } = require("../helpers/idGenerator")
 const Project = require('../mongoModels/project');
 const { createBoard } = require("./boards");
 
-
-
-
 module.exports.getProjects = async (req,res)=>{
    try{
       Project.find({}, function(err, result) {
@@ -29,7 +26,6 @@ module.exports.postProject = async (req,res)=>{
          
          const createProject = {
          ...project,
-         // ProjectId: generateUniqueId.generateUniqueId(),
          // users,
       }
       const newProject = new Project(createProject)

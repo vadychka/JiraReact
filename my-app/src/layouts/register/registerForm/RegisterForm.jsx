@@ -1,7 +1,6 @@
 
 import './RegisterForm.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
@@ -43,7 +42,7 @@ const RegisterForm = () => {
           className='register-form__field'
           {...register('password', passwordReg )}></input>
 
-        <Button style={BTN__DEFAULT}>Registration</Button>
+        <Button>Registration</Button>
 
       </fieldset>
     </form>

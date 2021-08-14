@@ -1,6 +1,5 @@
 import './Projects.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
 import ProjectsStore from 'store/BoardStore/ProjectsStore';
@@ -14,7 +13,7 @@ const Projects = ({setActive}) => {
     <div className="projects">
       <ProjectSort></ProjectSort>
       <div className={'projects__create-btn'}>
-        <Button style={BTN__DEFAULT} onClickBtn={()=>setActive(111)}
+        <Button onClickBtn={()=>setActive(111)}
         >Add Project</Button>
       </div>
 

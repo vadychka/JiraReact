@@ -1,6 +1,5 @@
 import './ProjectForm.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {useForm} from 'react-hook-form';
 import ProjectsStore from 'store/BoardStore/ProjectsStore';
@@ -47,7 +46,7 @@ const ProjectForm = (active) => {
         {...register('details', detailsTaskValidation)}
       ></textarea>
     </fieldset>
-    <Button style={BTN__DEFAULT}>
+    <Button >
         Add
     </Button>
   </form>;

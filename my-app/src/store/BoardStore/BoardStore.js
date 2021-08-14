@@ -12,14 +12,13 @@ class BoardStore {
 
   constructor() {
     makeAutoObservable(this);
-    // this.getInitData();
   }
 
   dropBetweenColumns(source, destination) {
     const sourceColumn = this.columns.find((el)=>
-      el.id === source.droppableId);
+      el._id === source.droppableId);
     const destColumn = this.columns.find((el) =>
-      el.id === destination.droppableId);
+      el._id === destination.droppableId);
     const sourceItems = [...sourceColumn.tasks];
     const destItems = [...destColumn.tasks];
     const [removed] = sourceItems.splice(source.index, 1);
@@ -33,7 +32,7 @@ class BoardStore {
 
   dropBetweenTasks(source, destination) {
     const userTask = this.columns.find((el)=>
-      el.id === destination.droppableId );
+      el._id === destination.droppableId );
     const items = userTask.tasks;
     const [reorderedItem] = items.splice(source.index, 1);
     items.splice(destination.index, 0, reorderedItem);
@@ -53,8 +52,9 @@ class BoardStore {
   async postTask(data, colId) {
     const newTask = await createTask(data, colId, this.projectId);
     if (newTask) {
-      const findColumn = this.columns.find((el)=> el.id === colId,
+      const findColumn = this.columns.find((el)=> el._id === colId,
       );
+
       findColumn.tasks.push(newTask);
     }
   }
@@ -63,11 +63,6 @@ class BoardStore {
     const resTasks = await getTasks(projectId);
     this.setColumns(resTasks.column);
   }
-
-  // async getInitData() {
-  //   const resTasks = await getTasks(this.projectId);
-  //   this.setColumns(resTasks);
-  // }
 }
 
 export default new BoardStore();

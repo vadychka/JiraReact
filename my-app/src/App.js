@@ -44,7 +44,7 @@ function App() {
             <Route path={Routes.projects}
               render={()=> <Projects setActive={setPopUpProject}>
               </Projects>}></Route>
-            <Redirect path={Routes.register}></Redirect>
+            <Redirect to={Routes.register}></Redirect>
 
           </Switch>
 

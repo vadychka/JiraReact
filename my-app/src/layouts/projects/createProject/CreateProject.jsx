@@ -1,6 +1,5 @@
 import './CreateProject.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 
 import ProjectForm from '../projectForm/ProjectForm';
@@ -16,7 +15,6 @@ const CreateProject = ({active, setActive}) => {
       <div className="create-project__content"
         onClick={(e) => e.stopPropagation()}>
         <Button
-          style={BTN__DEFAULT}
           onClickBtn={() => {
             setActive(null);
           }}>

@@ -1,7 +1,6 @@
 import './LogInForm.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components';
 import {observer} from 'mobx-react-lite';
 import {useForm} from 'react-hook-form';
@@ -47,11 +46,12 @@ const LogInForm = () => {
         placeholder='write your password'
         {...register('password', passwordReg)}>
       </input>
-      <Button style={BTN__DEFAULT} onClickBtn={onClick}>LOG IN</Button>
+      <Button onClickBtn={onClick}>LOG IN</Button>
       <Link to={Routes.register} className='login-form__registration-btn'>
         Registration</Link>
       <ToastContainer />;
     </form>
+
   );
 };
 

@@ -1,8 +1,6 @@
 const Board = require('../mongoModels/board')
-const task = require('../mongoModels/task')
 
  module.exports.createBoard = async(projectId)=> {
-   // try{
       const columns = [{
          title: 'to do',
          tasks: []
@@ -15,20 +13,6 @@ const task = require('../mongoModels/task')
       }]
       const newBoard = new Board({column:columns, projectId:projectId})
       await newBoard.save()
-      
-      // if(newBoard){
-      //    res.status(200).json(newBoard)
-      // }
-      // else{
-      //    res.status(400).json('invalid input')
-      // }
-   // }
-   // catch(ex){
-   //    console.log(ex)
-   //    res.status(500).json({error:'Internal error server'})
-   // }
-   
-   // }
 }
 
 
@@ -45,55 +29,48 @@ module.exports.getBoard = async (req,res) => {
       }
    }
    catch(ex){
-      console.log(ex)
       res.status(500).json({error:'Internal error server'})
    }
 }
 
 module.exports.addTasks = async (req, res) => {
    try{
-
       const {tasks, id, boardId} = req.body
-      // console.log(req.body)
-      //  console.log(req.body)
-  
-      // if(req.body){
-      //   const selectedBoard = await Board.findOne({projectId: boardId})
-      //   console.log(selectBoard)
-    
-      //   const newTask = {...tasks, id: generateId.generateUniqueId()}
-      //   const selectedColumn  = selectedBoard.columns.find((el)=> el.id === id);
-      //   selectedColumn.tasks.push(newTask);
-    
-        
-      //   return newTask
-      // }
-
-
-      // const task = req.body
-      // let result = Columns.addTask(task)
 
       if(req.body){
-         const selectedBoard = await Board.findOne({projectId: boardId})
-         // console.log(selectedBoard)
-         // console.log(id)
-         const selectedColumn =  await selectedBoard.column.find(el=> toString(el._id) === toString(id));
-         // console.log(selectedColumn)
+         const selectedBoard = await Board.findOne({"projectId":boardId}) 
+         const selectedColumn = selectedBoard.column.find(el => String(el._id) === id)
          selectedColumn.tasks.push(tasks)
-         // console.log(selectedColumn)
-         await selectedColumn.save()
-         console.log(selectedColumn)
-         
-      //   console.log(selectedBoard)
-         res.status(200).json(tasks)
+         await selectedBoard.save()
+         const taskFromBack = selectedColumn.tasks[selectedColumn.tasks.length - 1]
+         res.status(200).json(taskFromBack)
       }
       else{
-         console.log(400)
          res.status(400).json('invalid input')
       }
    }
    catch(ex){
-      console.log(500)
+      res.status(500).json({error:'Internal error server'})
+   }
+}
+
+module.exports.dragTask = async (req, res) => {
+   try{
+      const {source, destination, columnId} = req.body
+      if(req.body){
+         
+         const selectedBoard = await Board.findOne({"projectId":columnId})
+         const selectedColumn = selectedBoard.column.find(el=> String(el._id) === destination);
+         selectedColumn.tasks = source
+         await selectedBoard.save()
+         
+         res.status(200).json(source)
+      }
+      else{
+         res.status(400).json('invalid input')
+      }
+   }
+   catch(ex){
       res.status(500).json({error:'Internal error server'})
    }
 }

@@ -1,6 +1,5 @@
 import './CreateTask.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 
 import TaskForm from '../taskForm';
@@ -17,7 +16,6 @@ const CreateTask = ({active, setActive}) => {
       <div className="create-task__content"
         onClick={(e) => e.stopPropagation()}>
         <Button
-          style={BTN__DEFAULT}
           onClickBtn={() => {
             setActive(null);
           }}

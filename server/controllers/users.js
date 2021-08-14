@@ -5,10 +5,9 @@ module.exports.getUser = async(req,res)=> {
    try{
       const {name, password} = req.params
     
-      const candidateName = await User.findOne({name:name})
-      const candidatePassword = await User.findOne({password: password})
-      if(candidateName && candidatePassword){
-         res.status(200).json(candidateName)
+      const candidate = await User.findOne({name, password})
+      if(candidate){
+         res.status(200).json(candidate)
       }
       else{
          res.status(400).json('invalid input')
