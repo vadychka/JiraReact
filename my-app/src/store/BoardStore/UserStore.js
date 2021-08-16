@@ -13,11 +13,15 @@ class UserStore {
    constructor() {
      makeAutoObservable(this);
 
-     //  if (localStorage.getItem(LS_USER_CREDENTIAL)) {
-     //    const [name, password] = localStorage.getItem(LS_USER_CREDENTIAL)
-     //        .split(' ');
-     //    this.logIn({name, password});
-     //  }
+     if (localStorage.getItem(LS_USER_CREDENTIAL)) {
+       const [name, password] = localStorage.getItem(LS_USER_CREDENTIAL)
+           .split(' ');
+       this.logIn({name, password});
+     }
+   }
+   logOut() {
+     this.user = null;
+     localStorage.removeItem(LS_USER_CREDENTIAL);
    }
 
 

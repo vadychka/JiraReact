@@ -1,5 +1,6 @@
 
-import {changeTask, createTask, getTasks} from 'api/board';
+import {changeCol,
+  changeTask, createTask, getTasks} from 'api/board';
 import {makeAutoObservable} from 'mobx';
 
 class BoardStore {
@@ -25,9 +26,9 @@ class BoardStore {
     destItems.splice(destination.index, 0, removed);
 
     sourceColumn.tasks = sourceItems;
-    this.changePriority(sourceItems, source.droppableId);
     destColumn.tasks = destItems;
-    this.changePriority(destItems, destination.droppableId);
+    this.changePriorityColumn(sourceItems, source.droppableId,
+        destItems, destination.droppableId);
   }
 
   dropBetweenTasks(source, destination) {
@@ -39,6 +40,12 @@ class BoardStore {
 
     userTask.tasks = items;
     this.changePriority(items, destination.droppableId);
+  }
+
+  async changePriorityColumn(sourceItems, sourceDrId,
+      destItems, destinationDrId) {
+    await changeCol(sourceItems, sourceDrId,
+        destItems, destinationDrId, this.projectId);
   }
 
   async changePriority(items, id) {

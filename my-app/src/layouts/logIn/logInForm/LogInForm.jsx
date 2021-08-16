@@ -49,7 +49,7 @@ const LogInForm = () => {
       <Button onClickBtn={onClick}>LOG IN</Button>
       <Link to={Routes.register} className='login-form__registration-btn'>
         Registration</Link>
-      <ToastContainer />;
+      <ToastContainer />
     </form>
 
   );

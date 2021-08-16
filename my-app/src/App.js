@@ -29,7 +29,7 @@ function App() {
   return (
     <Router>
       <div className="app__wrapper">
-        <Header setIsActive={() => setIsActive(!isActive)}></Header>
+        <Header setIsActive={() => setIsActive(!isActive)}/>
         <div className="main">
           <SideBar isActive={isActive}></SideBar>
           <Switch>

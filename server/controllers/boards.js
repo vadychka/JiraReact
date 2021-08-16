@@ -1,4 +1,6 @@
+const { isValidObjectId } = require('mongoose')
 const Board = require('../mongoModels/board')
+const ObjectId = require('mongodb').ObjectId;
 
  module.exports.createBoard = async(projectId)=> {
       const columns = [{
@@ -58,9 +60,11 @@ module.exports.dragTask = async (req, res) => {
    try{
       const {source, destination, columnId} = req.body
       if(req.body){
+         console.log(columnId)
          
-         const selectedBoard = await Board.findOne({"projectId":columnId})
-         const selectedColumn = selectedBoard.column.find(el=> String(el._id) === destination);
+         const selectedBoard = await Board.findOne({'projectId':columnId})
+         // console.log(selectedBoard)
+         const selectedColumn = selectedBoard.column.find(el => String(el._id) === destination);
          selectedColumn.tasks = source
          await selectedBoard.save()
          
@@ -71,6 +75,32 @@ module.exports.dragTask = async (req, res) => {
       }
    }
    catch(ex){
+      console.log(ex)
+      res.status(500).json({error:'Internal error server'})
+   }
+}
+
+module.exports.dragToColumn = async (req, res) => {
+   try{
+      const {sourceItems, sourceDrId,
+         destItems, destinationDrId, columnId} = req.body
+      if(req.body){
+         
+         const selectedBoard = await Board.findOne({'projectId':columnId})
+         const selectedColumnDes = selectedBoard.column.find(el => String(el._id) === destinationDrId);
+         const selectedColumnSou = selectedBoard.column.find(el => String(el._id) === sourceDrId);
+         selectedColumnDes.tasks = destItems
+         selectedColumnSou.tasks = sourceItems
+         await selectedBoard.save()
+         
+         res.status(200).json('valid input')
+      }
+      else{
+         res.status(400).json('invalid input')
+      }
+   }
+   catch(ex){
+      console.log(ex)
       res.status(500).json({error:'Internal error server'})
    }
 }
