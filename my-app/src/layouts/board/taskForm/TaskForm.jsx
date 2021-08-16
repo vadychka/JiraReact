@@ -1,6 +1,5 @@
 import './TaskForm.scss';
 
-import {BTN__DEFAULT} from 'common';
 import {Button} from 'components/button';
 import {useForm} from 'react-hook-form';
 import {BoardStore} from 'store/BoardStore';
@@ -62,7 +61,6 @@ const TaskForm = (active) => {
       </select>
     </div>
     <Button
-      style={BTN__DEFAULT}
       onClick={(e) => console.log(e)}
     >
         Add

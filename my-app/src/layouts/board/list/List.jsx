@@ -14,13 +14,13 @@ const List = ({props, setActive, tasks, list}) => {
         </h2>
         <button
           onClick={() => {
-            setActive({id: list.id});
+            setActive({id: list._id});
           }}
         >
           +
         </button>
       </div>
-      <Droppable droppableId={list.id}>
+      <Droppable droppableId={list._id}>
         {(provided) => (
           <div className='list__body'
             {...provided.droppableProps}
@@ -29,8 +29,8 @@ const List = ({props, setActive, tasks, list}) => {
             {tasks.map((data, index) => {
               return (
                 <ListBody details={data.details} title={data.title}
-                  key={data.id}
-                  priority={data.priority} index={index} id={data.id + 'id'}
+                  key={data._id}
+                  priority={data.priority} index={index} id={data._id}
                 ></ListBody>
               );
             },

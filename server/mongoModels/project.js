@@ -8,8 +8,10 @@ const schema =new Schema({
    details: {
       type: String, 
       default: ''
-   }
-  
+   },
+   ProjectId: {
+      type: Types.ObjectId
+   },
 
 })
 

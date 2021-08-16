@@ -15,7 +15,6 @@ module.exports.createBoard = (ProjectId) => {
       tasks: []},
   ]
   const newBoard = {
-    
     columns, ProjectId
   }
   boards.push(newBoard)

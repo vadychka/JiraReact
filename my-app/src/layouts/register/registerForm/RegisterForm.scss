@@ -10,7 +10,9 @@
       color: brown;
       font-size: 17px;
    }
-   &__inp {
+   &__field {
+      border: 2px solid steelblue;
+      border-radius: 10px;
       padding: 1em;
       margin: 1em 0em;
       border-radius: 9px;

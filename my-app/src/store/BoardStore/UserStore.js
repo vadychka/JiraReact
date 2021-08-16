@@ -1,29 +1,41 @@
+import {LS_USER_CREDENTIAL} from 'utils/constants';
+
 import {addUser, getUser} from '../../api/users';
 
 const {makeAutoObservable} = require('mobx');
 
 
 class UserStore {
-   user={}
-   textUnderForm = ''
+   user=null
+   textError = null
+
 
    constructor() {
      makeAutoObservable(this);
+
+     if (localStorage.getItem(LS_USER_CREDENTIAL)) {
+       const [name, password] = localStorage.getItem(LS_USER_CREDENTIAL)
+           .split(' ');
+       this.logIn({name, password});
+     }
+   }
+   logOut() {
+     this.user = null;
+     localStorage.removeItem(LS_USER_CREDENTIAL);
    }
 
-   answerLogin(data) {
-     if (data.name) {
-       this.user = data;
-       return this.textUnderForm = 'welcome to the our site';
-     } else if (data === 'login') {
-       return this.textUnderForm = 'this name is not registration on the site';
-     } else {
-       return this.textUnderForm = 'password is not correct';
-     }
-   };
+
    async logIn(data) {
-     const loginUser = await getUser(data.name, data.password);
-     this.answerLogin(loginUser);
+     try {
+       const user = await getUser(data.name, data.password);
+       if (user) {
+         this.user = user;
+         localStorage.setItem(LS_USER_CREDENTIAL,
+             `${user.name} ${user.password}`);
+       }
+     } catch (e) {
+       this.textError = 'invalid input';
+     }
    }
 
    async createUser(data) {

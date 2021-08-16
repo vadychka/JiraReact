@@ -2,9 +2,8 @@ const {Schema, Types, model} = require ('mongoose')
 const Column = require('./column')
 
 const schema = new Schema({
-   columns: {
-      type:[Column.schema],
-      default: []
+   column: {
+      type:[Column.schema]
    },
    projectId:{
       type:Types.ObjectId,

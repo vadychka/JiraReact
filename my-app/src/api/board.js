@@ -21,3 +21,12 @@ export const changeTask = async (source, destination, columnId) => {
 };
 
 
+export const changeCol = async (sourceItems, sourceDrId,
+    destItems, destinationDrId, columnId) => {
+  const res = await axios.patch(`${basicURL}/${boardRoute}/dragC`,
+      {sourceItems, sourceDrId,
+        destItems, destinationDrId, columnId});
+  return res?.data;
+};
+
+

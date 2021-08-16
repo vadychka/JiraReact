@@ -5,6 +5,7 @@ import {pushProject} from 'api/projects';
 class ProjectsStore {
    projects = []
 
+
    constructor() {
      makeAutoObservable(this);
      this.getInitData();
