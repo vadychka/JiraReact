@@ -9,9 +9,7 @@ const schema =new Schema({
       type: String, 
       default: ''
    }
-   // usersId : [{
-   //    id: {type: Types.ObjectId, ref: 'User'}
-   // }]
+  
 
 })
 

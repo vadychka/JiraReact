@@ -5,6 +5,10 @@ import {makeAutoObservable} from 'mobx';
 class BoardStore {
   columns = []
   projectId = ''
+  // board={
+  //   columns: [],
+  //   ptojectId: ''
+  // }
 
   constructor() {
     makeAutoObservable(this);
@@ -39,7 +43,7 @@ class BoardStore {
   }
 
   async changePriority(items, id) {
-    await changeTask(items, id);
+    await changeTask(items, id, this.projectId);
   }
 
   setColumns(value) {

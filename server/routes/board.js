@@ -2,9 +2,19 @@ const {Router}=  require('express')
 const router =Router()
 const Columns = require('../models/board')
 
-router.get('/', (req,res)=> {
+
+router.get('/:id', async(req,res)=> {
    try{
-      const id = req.body
+      const id = req.params.id
+      // const newUser = new User({
+      //    name: 'Vlad',
+      //    email: 'dsijdsj',
+      //    password: 'dsjis'
+      // })
+      // await newUser.save()
+      // console.log(newUser)
+      // const candidate = await User.findOne({name:'Vlad'})
+      // console.log(candidate)
       let result = Columns.getTasks(id)
       if(result){
          res.status(200).json(result)

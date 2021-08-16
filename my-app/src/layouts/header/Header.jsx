@@ -2,9 +2,10 @@ import './Header.scss';
 import './index';
 
 import {logo} from 'assets';
+import LogIn from 'layouts/logIn/LogIn';
 import {observer} from 'mobx-react-lite';
-import React from 'react';
-import UsersStore from 'store/BoardStore/UsersStore';
+import React, {useState} from 'react';
+import UsersStore from 'store/BoardStore/UserStore';
 
 import HeaderBarBtn from './headerBtnBar/HeaderBarBtn';
 import HeaderLoginAndRegister from
@@ -13,6 +14,7 @@ import HeaderLogOut from './headerLogOut/HeaderLogOut';
 import HeaderMenu from './headerMenu/HeaderMenu';
 
 const Header = ({setIsActive}) => {
+  const [showLogin, setActiveLogin] = useState(null);
   return (
     <div className="header">
       <HeaderBarBtn onClick={setIsActive}></HeaderBarBtn>
@@ -23,7 +25,10 @@ const Header = ({setIsActive}) => {
         className="header__search"
         placeholder="&#128270;   Search"
       />
-      {UsersStore.users ? <HeaderLoginAndRegister /> : <HeaderLogOut/>}
+      {!UsersStore.user.length ? <HeaderLoginAndRegister
+        activeLogin={setActiveLogin}>
+      </HeaderLoginAndRegister> : <HeaderLogOut/>}
+      <LogIn showLogin={showLogin}></LogIn>
     </div>
   );
 };
