@@ -2,7 +2,7 @@ import './TaskForm.scss';
 
 import {Button} from 'components/button';
 import {useForm} from 'react-hook-form';
-import {BoardStore} from 'store/BoardStore';
+import {BoardStore} from 'store';
 
 import {detailsTaskValidation, priorityTaskValidation, titleTaskValidation}
   from './validation';

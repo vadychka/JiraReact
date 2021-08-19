@@ -4,7 +4,7 @@ import {observer} from 'mobx-react-lite';
 import React, {useEffect} from 'react';
 import {DragDropContext} from 'react-beautiful-dnd';
 import {useHistory} from 'react-router';
-import {BoardStore} from 'store/BoardStore';
+import {BoardStore} from 'store';
 import {Routes} from 'utils';
 
 import List from './list/List';

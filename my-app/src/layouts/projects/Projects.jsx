@@ -2,7 +2,8 @@ import './Projects.scss';
 
 import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
-import ProjectsStore from 'store/BoardStore/ProjectsStore';
+import React from 'react';
+import ProjectsStore from 'store/ProjectsStore';
 
 import Project from './project';
 import ProjectSort from './projectSort/ProjectSort';

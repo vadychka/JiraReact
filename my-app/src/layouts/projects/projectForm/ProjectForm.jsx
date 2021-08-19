@@ -2,7 +2,7 @@ import './ProjectForm.scss';
 
 import {Button} from 'components/button';
 import {useForm} from 'react-hook-form';
-import ProjectsStore from 'store/BoardStore/ProjectsStore';
+import ProjectsStore from 'store/ProjectsStore';
 
 import {detailsTaskValidation, titleTaskValidation} from './validation';
 

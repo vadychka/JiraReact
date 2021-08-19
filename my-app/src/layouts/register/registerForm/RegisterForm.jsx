@@ -5,7 +5,7 @@ import {Button} from 'components/button';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
 import {useForm} from 'react-hook-form';
-import UserStore from 'store/BoardStore/UserStore';
+import UserStore from 'store/UserStore';
 
 import {emailReg, nameReg, passwordReg} from './validation';
 
