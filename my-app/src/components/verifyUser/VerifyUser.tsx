@@ -4,15 +4,19 @@ import Board from 'layouts/board';
 import Projects from 'layouts/projects';
 import { FC } from 'react';
 
-const { default: UserStore } = require('store/UserStore');
+import UserStore from 'store/UserStore'
+import { observer } from 'mobx-react-lite';
 
 interface IVerifyUserProps {
-  setPopUpProject: boolean;
-  setPopUpActive: string;
+  setPopUpProject: () => void
+  setPopUpActive: () => void
 }
 
 
 const VerifyUser: FC<IVerifyUserProps> = ({ setPopUpProject, setPopUpActive }) => {
+  if (UserStore.isFetching) {
+    return <p>loading</p>
+  }
   if (!UserStore.user) {
     return <Redirect to={Routes.login}></Redirect>;
   }
@@ -25,4 +29,4 @@ const VerifyUser: FC<IVerifyUserProps> = ({ setPopUpProject, setPopUpActive }) =
   );
 };
 
-export default VerifyUser;
+export default observer(VerifyUser);

@@ -37,7 +37,7 @@ function App() {
               render={()=><LogIn></LogIn>}></Route>
             <Route path={Routes.register}
               render={()=> <Register></Register>}></Route>
-            <VerifyUser setActive={setPopUpProject} setActive={setPopUpActive}
+            <VerifyUser setPopUpProject={setPopUpProject} setPopUpActive={setPopUpActive}
             ></VerifyUser>
             <Redirect to={Routes.register}></Redirect>
 
