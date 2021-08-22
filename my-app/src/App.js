@@ -23,7 +23,7 @@ import SideBar from './layouts/sidebar';
 function App() {
   const [popUpActive, setPopUpActive] = useState(null);
   const [isActive, setIsActive] = useState(false);
-  const [popUpProject, setPopUpProject] = useState(null);
+  const [popUpProject, setPopUpProject] = useState(false);
 
   return (
     <Router>
