@@ -8,13 +8,12 @@ import ProjectsStore from 'store/ProjectsStore';
 import Project from './project';
 import ProjectSort from './projectSort/ProjectSort';
 
-
 const Projects = ({setActive}) => {
   return (
     <div className="projects">
       <ProjectSort></ProjectSort>
       <div className={'projects__create-btn'}>
-        <Button onClickBtn={()=>setActive(111)}
+        <Button onClickBtn={()=>setActive(true)}
         >Add Project</Button>
       </div>
 

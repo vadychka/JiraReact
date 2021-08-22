@@ -1,6 +1,6 @@
-const {makeAutoObservable} = require('mobx');
 import {getProjects} from 'api';
 import {pushProject} from 'api/projects';
+const {makeAutoObservable} = require('mobx');
 
 class ProjectsStore {
    projects = []
@@ -27,4 +27,4 @@ class ProjectsStore {
 }
 
 
-export default new (ProjectsStore);
+export default new (ProjectsStore)();

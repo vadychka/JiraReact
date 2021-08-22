@@ -23,7 +23,7 @@ import SideBar from './layouts/sidebar';
 function App() {
   const [popUpActive, setPopUpActive] = useState(null);
   const [isActive, setIsActive] = useState(false);
-  const [popUpProject, setPopUpProject] = useState(null);
+  const [popUpProject, setPopUpProject] = useState(false);
 
   return (
     <Router>
@@ -37,7 +37,7 @@ function App() {
               render={()=><LogIn></LogIn>}></Route>
             <Route path={Routes.register}
               render={()=> <Register></Register>}></Route>
-            <VerifyUser setActive={setPopUpProject} setActive={setPopUpActive}
+            <VerifyUser setPopUpProject={setPopUpProject} setPopUpActive={setPopUpActive}
             ></VerifyUser>
             <Redirect to={Routes.register}></Redirect>
 

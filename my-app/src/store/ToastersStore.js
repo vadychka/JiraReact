@@ -7,6 +7,9 @@ class ToastersStore {
      makeAutoObservable(this);
    }
    addToaster(error) {
+     if(this.toasters.length > 9){
+       this.toasters.length = 0
+     }
      this.toasters.push(error);
    }
 }

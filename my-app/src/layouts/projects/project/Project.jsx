@@ -3,15 +3,15 @@ import './Project.scss';
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-const Routs = {
-  'projects': '/projects',
-  'dashboards': '/content',
-};
-
 import {ACCORDION__SHOW} from 'layouts/header/headerBtnBar';
 import {observer} from 'mobx-react-lite';
 import {useState} from 'react';
 import {BoardStore} from 'store';
+
+const Routs = {
+  'projects': '/projects',
+  'dashboards': '/content',
+};
 
 const Project = ({title, details, projectId}) => {
   const [showTitle, setShowTitle] = useState(false);
