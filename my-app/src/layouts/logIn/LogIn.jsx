@@ -1,9 +1,22 @@
 import './LogIn.scss';
 
+import {observer} from 'mobx-react-lite';
+import React, {useEffect} from 'react';
+import {useHistory} from 'react-router';
+import UserStore from 'store/UserStore';
+import {Routes} from 'utils';
+
 import LogInForm from './logInForm/LogInForm';
 
 
 const LogIn = () => {
+  const {user} = UserStore;
+  const history = useHistory();
+  useEffect(()=>{
+    if (user) {
+      history.push( Routes.projects);
+    }
+  }, [user] );
   return (
     <div className='log-in'>
       <LogInForm></LogInForm>
@@ -11,4 +24,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default observer(LogIn);

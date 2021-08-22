@@ -2,9 +2,10 @@ import './App.scss';
 import 'constants';
 import './Appp.scss';
 
+import ToasterHandler from 'components/toasts/ToasterHandler';
+import VerifyUser from 'components/verifyUser/VerifyUser';
 import CreateTask from 'layouts/board/createTask/CreateTask';
 import LogIn from 'layouts/logIn/LogIn';
-import Projects from 'layouts/projects';
 import CreateProject from 'layouts/projects/createProject/CreateProject';
 import Register from 'layouts/register';
 import React, {useState} from 'react';
@@ -16,7 +17,6 @@ import {
 } from 'react-router-dom';
 import {Routes} from 'utils';
 
-import Board from './layouts/board';
 import Header from './layouts/header/Header';
 import SideBar from './layouts/sidebar';
 
@@ -24,7 +24,6 @@ function App() {
   const [popUpActive, setPopUpActive] = useState(null);
   const [isActive, setIsActive] = useState(false);
   const [popUpProject, setPopUpProject] = useState(null);
-
 
   return (
     <Router>
@@ -38,12 +37,8 @@ function App() {
               render={()=><LogIn></LogIn>}></Route>
             <Route path={Routes.register}
               render={()=> <Register></Register>}></Route>
-            <Route path={Routes.dashboards}
-              render={()=> <Board setActive={setPopUpActive}></Board>}>
-            </Route>
-            <Route path={Routes.projects}
-              render={()=> <Projects setActive={setPopUpProject}>
-              </Projects>}></Route>
+            <VerifyUser setActive={setPopUpProject} setActive={setPopUpActive}
+            ></VerifyUser>
             <Redirect to={Routes.register}></Redirect>
 
           </Switch>
@@ -56,6 +51,7 @@ function App() {
           setActive={setPopUpProject}></CreateProject>
 
       </div>
+      <ToasterHandler/>
     </Router>
   );
 }

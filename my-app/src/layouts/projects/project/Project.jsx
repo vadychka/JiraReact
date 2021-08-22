@@ -11,7 +11,7 @@ const Routs = {
 import {ACCORDION__SHOW} from 'layouts/header/headerBtnBar';
 import {observer} from 'mobx-react-lite';
 import {useState} from 'react';
-import {BoardStore} from 'store/BoardStore';
+import {BoardStore} from 'store';
 
 const Project = ({title, details, projectId}) => {
   const [showTitle, setShowTitle] = useState(false);

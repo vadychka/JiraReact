@@ -2,9 +2,10 @@ import './Header.scss';
 import './index';
 
 import {logo} from 'assets';
+import {TEXT_HEADER} from 'common/constants';
 import {observer} from 'mobx-react-lite';
 import React from 'react';
-import UserStore from 'store/BoardStore/UserStore';
+import UserStore from 'store/UserStore';
 
 import HeaderBarBtn from './headerBtnBar/HeaderBarBtn';
 import HeaderLoginAndRegister from
@@ -17,13 +18,13 @@ const Header = ({setIsActive}) => {
     <div className="header">
       <HeaderBarBtn onClick={setIsActive}></HeaderBarBtn>
       <img src={logo} alt="img" className="header__logo" />
-      <HeaderMenu />
+      {!UserStore.user ? TEXT_HEADER : <HeaderMenu /> }
       <input
         type="text"
         className="header__search"
         placeholder="&#128270;   Search"
       />
-      {!UserStore.user ? <HeaderLoginAndRegister/> : <HeaderLogOut/>}
+      {!UserStore.user ? <HeaderLoginAndRegister/> : <HeaderLogOut/> }
 
     </div>
   );

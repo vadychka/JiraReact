@@ -10,7 +10,7 @@ module.exports.getUser = async(req,res)=> {
          res.status(200).json(candidate)
       }
       else{
-         res.status(400).json('invalid input')
+         res.status(400).json(null)
       }
    }
    catch(ex){
