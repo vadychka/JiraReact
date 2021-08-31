@@ -7,9 +7,18 @@
    justify-content: space-around;
    width: 100%;
    position: relative;
+   transition: 0.3s;
    &__search {
       border-radius: 11px;
       border: 2px solid #6ebbd3;
       padding: 0.5em;
+   }
+   &__close {
+      transition: 0.3s;
+      display: flex;
+      grid-area: header;
+      width: 0%;
+      position: absolute;
+      top: -100px;
    }
 }

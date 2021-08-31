@@ -1,4 +1,3 @@
-const { generateUniqueId } = require("../helpers/idGenerator")
 const Project = require('../mongoModels/project');
 const { createBoard } = require("./boards");
 
