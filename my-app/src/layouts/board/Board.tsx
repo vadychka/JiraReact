@@ -12,12 +12,11 @@ import { IColumn } from 'utils/interfaces';
 
 
 interface IBoardProps {
-  setActive: (val: string | null) => void
+  setActive: (val: string) => void
 }
 
-
 const Board: React.FC<IBoardProps> = ({ setActive }) => {
-  const history = useHistory();
+  const history = useHistory<string>();
   const { columns } = BoardStore;
 
   useEffect(() => {
@@ -39,11 +38,11 @@ const Board: React.FC<IBoardProps> = ({ setActive }) => {
   return (
     <DragDropContext onDragEnd={(result: DropResult) =>
       changeTasks(result.source, result.destination)}>
-      <div className="content" >
+      <div className="board" >
         {BoardStore.columns.map((el: IColumn) => {
           return <List
             setActive={setActive} key={el._id}
-            props={el.title} tasks={el.tasks} list={el}></List>;
+            title={el.title} tasks={el.tasks} list={el}></List>;
         })}
       </div>
     </DragDropContext>

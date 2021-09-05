@@ -1,7 +1,7 @@
 const { makeAutoObservable } = require('mobx');
 
 interface IErrorToaster {
-  type: string,
+  type: 'error'| 'message',
   message: string
 }
 

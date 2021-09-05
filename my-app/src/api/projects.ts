@@ -1,13 +1,13 @@
 import { IProject } from './../utils/interfaces';
 import axios from 'axios';
 
-import { basicURL, projectsRout } from './routes';
+import { basicURL, projectsRoute } from './routes';
 
-export const getProjects = async () => {
-  const res = await axios.get(`${basicURL}/${projectsRout}`);
+export const getProjects = async (): Promise<IProject[]> => {
+  const res = await axios.get(`${basicURL}/${projectsRoute}`);
   return res?.data;
 };
-export const pushProject = async (project: IProject) => {
-  const res = await axios.post(`${basicURL}/${projectsRout}`, project);
+export const pushProject = async (project: IProject): Promise<IProject> => {
+  const res = await axios.post(`${basicURL}/${projectsRoute}`, project);
   return res?.data;
 };

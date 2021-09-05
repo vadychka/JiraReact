@@ -1,23 +1,23 @@
 import './LogInForm.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
-import {Button} from 'components';
-import {observer} from 'mobx-react-lite';
-import {useForm} from 'react-hook-form';
-import {Link} from 'react-router-dom';
+import { Button } from 'components';
+import { observer } from 'mobx-react-lite';
+import { useForm } from 'react-hook-form';
+import { Link } from 'react-router-dom';
 import UserStore from 'store/UserStore';
-import {Routes} from 'utils';
+import { Routes } from 'utils';
 
-import {nameReg, passwordReg} from './validation';
+import { nameReg, passwordReg } from './validation';
 import { IUser } from 'utils/interfaces';
 
 const LogInForm = () => {
-  const {register, handleSubmit,
-    formState: {errors}} = useForm();
+  const { register, handleSubmit,
+    formState: { errors } } = useForm();
 
   return (
     <form className='login-form'
-      onSubmit={handleSubmit((data:IUser) => {
+      onSubmit={handleSubmit((data: IUser) => {
         UserStore.logIn(data);
       })}>
       <h3 className='login-form__main-title'>Log In</h3>
@@ -35,7 +35,7 @@ const LogInForm = () => {
         <legend>Password</legend>
         <p className='login-form__error'>{errors?.password?.message}</p>
       </div>
-      <input type='text'
+      <input type='password'
         className='login-form__field'
         placeholder='write your password'
         {...register('password', passwordReg)}>

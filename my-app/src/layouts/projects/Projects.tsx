@@ -9,7 +9,7 @@ import Project from './project';
 import ProjectSort from './projectSort/ProjectSort';
 
 interface IProjectsProps {
-  setActive: (val: string | null) => void
+  setActive: (val: string) => void
 }
 
 const Projects: React.FC<IProjectsProps> = ({ setActive }) => {

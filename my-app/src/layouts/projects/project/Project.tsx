@@ -7,11 +7,7 @@ import { ACCORDION__SHOW } from 'layouts/header/headerBtnBar';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 import { BoardStore } from 'store';
-
-const Routs = {
-  'projects': '/projects',
-  'dashboards': '/content',
-};
+import { Routes } from 'utils';
 
 interface IProjectProps {
   title: string,
@@ -34,7 +30,7 @@ const Project: React.FC<IProjectProps> = ({ title, details, projectId }) => {
     <div className="project">
       <div className="project__title" onClick={onclick}>
         <h2>{title}</h2>
-        <Link to={Routs.dashboards} className="project__link">
+        <Link to={Routes.dashboards} className="project__link">
           Dashboard
         </Link>
       </div>

@@ -8,8 +8,8 @@ import UserStore from 'store/UserStore'
 import { observer } from 'mobx-react-lite';
 
 interface IVerifyUserProps {
-  setPopUpProject: (val: string | null) => void
-  setPopUpActive: (val: string | null) => void
+  setPopUpProject: (val: string) => void
+  setPopUpActive: (val: string) => void
 }
 
 

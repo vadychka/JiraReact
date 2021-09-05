@@ -8,7 +8,7 @@ const { makeAutoObservable } = require('mobx');
 
 
 class UserStore {
-  user: IUser[] | null = null
+  user: IUser | null = null
   isFetching = false
 
 

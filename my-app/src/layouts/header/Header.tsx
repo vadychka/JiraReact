@@ -11,12 +11,15 @@ import HeaderLoginAndRegister from
   './headerLoginAndRegister/HeaderLoginAndRegister';
 import HeaderLogOut from './headerLogOut/HeaderLogOut';
 import HeaderMenu from './headerMenu/HeaderMenu';
+import { Languages } from './languages';
 
 interface IHeaderProps {
   setIsActive: () => void
 }
 
+
 const Header: React.FC<IHeaderProps> = ({ setIsActive }) => {
+
   return (
     <div className={UserStore.user ? 'header' : 'header__close'}>
       <HeaderBarBtn onClick={setIsActive}></HeaderBarBtn>
@@ -27,6 +30,7 @@ const Header: React.FC<IHeaderProps> = ({ setIsActive }) => {
         className="header__search"
         placeholder="&#128270;   Search"
       />
+      <Languages />
       {!UserStore.user ? <HeaderLoginAndRegister /> : <HeaderLogOut />}
 
     </div >

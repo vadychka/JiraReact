@@ -3,12 +3,12 @@ import axios from 'axios';
 
 import { basicURL, usersRoute } from './routes';
 
-export const getUser = async (name: string, password: string) => {
+export const getUser = async (name: string, password: string): Promise<INewUser> => {
   const res = await axios.get(`${basicURL}/${usersRoute}/${name}/${password}`);
   return res?.data;
 };
 
-export const addUser = async (data: INewUser) => {
+export const addUser = async (data: INewUser): Promise<INewUser> => {
   const res = await axios.post(`${basicURL}/${usersRoute}`, data);
   return res?.data;
 };

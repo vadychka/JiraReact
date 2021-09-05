@@ -18,38 +18,40 @@ import { Routes } from 'utils';
 
 import Header from './layouts/header/Header';
 import SideBar from './layouts/sidebar';
+import { Suspense } from 'react';
 
 function App() {
-  const [popUpActive, setPopUpActive] = useState<string | null>('');
-  const [isActive, setIsActive] = useState<boolean>(false);
-  const [popUpProject, setPopUpProject] = useState<string | null>(null);
+  const [popUpActive, setPopUpActive] = useState('');
+  const [isActive, setIsActive] = useState(false);
+  const [popUpProject, setPopUpProject] = useState('');
 
   return (
     <Router>
-      <div className="app__wrapper" >
-        <Header setIsActive={() => setIsActive(!isActive)} />
-        < div className="main" >
-          <SideBar isActive={isActive}> </SideBar>
-          < Switch >
+      <Suspense fallback={<div>Loading...</div>} >
+        <div className="app__wrapper" >
+          <Header setIsActive={() => setIsActive(!isActive)} />
+          < div className="main" >
+            <SideBar isActive={isActive} />
+            < Switch >
 
-            <Route path={Routes.login}
-              render={() => <LogIn></LogIn>}></Route >
-            <Route path={Routes.register}
-              render={() => <Register></Register>}></Route >
-            <VerifyUser setPopUpProject={setPopUpProject} setPopUpActive={setPopUpActive}
-            > </VerifyUser>
+              <Route path={Routes.login}
+                render={() => <LogIn />} />
+              <Route path={Routes.register}
+                render={() => <Register />} />
+              <VerifyUser setPopUpProject={setPopUpProject} setPopUpActive={setPopUpActive} />
 
-          </Switch>
+            </Switch>
+
+          </div>
+
+          <CreateTask active={popUpActive}
+            setActive={setPopUpActive} />
+          <CreateProject active={popUpProject}
+            setActive={setPopUpProject} />
 
         </div>
-
-        <CreateTask active={popUpActive}
-          setActive={setPopUpActive} > </CreateTask>
-        <CreateProject active={popUpProject}
-          setActive={setPopUpProject} > </CreateProject>
-
-      </div>
-      < ToasterHandler />
+        < ToasterHandler />
+      </Suspense>
     </Router>
   );
 }

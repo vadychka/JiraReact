@@ -5,6 +5,7 @@ export interface IUser {
 }
 
 export interface INewUser {
+   _id: string,
    name: string,
    email: string,
    password: string,
@@ -22,6 +23,7 @@ export interface ITask {
    priority: string
 }
 
+
 export interface IColumn {
    _id: string,
    title: string,
@@ -31,5 +33,11 @@ export interface IColumn {
 export interface IProject {
    title: string,
    details: string,
+   _id: string
+}
+
+export interface IBoard {
+   column: IColumn[],
+   projectId: string,
    _id: string
 }

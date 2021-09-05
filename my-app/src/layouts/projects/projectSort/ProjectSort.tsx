@@ -1,20 +1,24 @@
+import React from 'react';
 import './ProjectSort.scss';
 
 const ProjectSort = () => {
-  const clickSort = (e: any) => {
-    if (e.target.style.color === 'lightblue') {
-      return (e.target.style.color = 'black');
+  const clickSort = (e: React.MouseEvent<HTMLButtonElement>) => {
+
+    console.log(e)
+    if (e.currentTarget.style.color === 'lightblue') {
+      console.log(e)
+      return (e.currentTarget.style.color = 'black');
     }
-    e.target.style.color = 'lightblue';
+    e.currentTarget.style.color = 'lightblue';
   };
   return (<div className="project-sort">
     <p>Sort by : </p>
-    <div className={`project-sort__name `} onClick={clickSort}>
+    <button className={`project-sort__name `} onClick={clickSort}>
       <p>&ensp; Name</p>
-    </div>
-    <div className={`project-sort__def `} onClick={clickSort}>
+    </button>
+    <button className={`project-sort__def `} onClick={clickSort}>
       <p>&ensp; Default</p>
-    </div>
+    </button>
   </div>
   );
 };

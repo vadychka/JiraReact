@@ -1,0 +1,32 @@
+{
+   "header": {
+      "home": "Главная",
+      "projects": "Проекты",
+      "dashboard": "Доска",
+      "logout": "Выход"
+   },
+   "projects": {
+      "sortBy": "Сортировать по",
+      "add_project": "Добавить проект",
+      "dashboard": "Доска"
+   },
+   "dashboard": {
+      "to_do": "Сделать",
+      "in_process": "В процессе",
+      "done": "Сделано"
+   },
+   "log_in": {
+      "title": "Вход",
+      "name": "Имя",
+      "password": "Пароль",
+      "button_log_in": "ВХОД",
+      "button_registration": "Зарегистрироватся"
+   },
+   "registration": {
+      "title": "Регистрация",
+      "name": "Имя",
+      "email": "Почта",
+      "password": "Пароль",
+      "button_registration": "Зарегистрироватся"
+   }
+}

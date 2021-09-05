@@ -5,8 +5,8 @@ import { Button } from 'components/button';
 import ProjectForm from '../projectForm/ProjectForm';
 
 interface ICreateProjectProps {
-  active: string | null,
-  setActive: (val: null | string) => void
+  active: string,
+  setActive: (val: string) => void
 }
 
 
@@ -15,13 +15,13 @@ const CreateProject: React.FC<ICreateProjectProps> = ({ active, setActive }) => 
     <div
       className={active ? 'create-project' : 'create-project__active'}
       onClick={() => {
-        setActive(null);
+        setActive('');
       }}>
       <div className="create-project__content"
         onClick={(e) => e.stopPropagation()}>
         <Button
           onClickBtn={() => {
-            setActive(null);
+            setActive('');
           }}>
           Close
         </Button>

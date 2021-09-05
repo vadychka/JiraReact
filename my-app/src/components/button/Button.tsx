@@ -3,7 +3,6 @@ import './Button.scss';
 import React from 'react';
 
 interface IButtonProps {
-  children: string;
   onClickBtn?: React.MouseEventHandler;
   style?: string
 }

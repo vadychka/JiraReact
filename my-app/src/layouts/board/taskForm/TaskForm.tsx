@@ -6,9 +6,10 @@ import { BoardStore } from 'store';
 
 import { detailsTaskValidation, priorityTaskValidation, titleTaskValidation }
   from './validation';
+import { ITask } from 'utils/interfaces';
 
 interface ITaskFormProps {
-  active: string | null,
+  active: string,
 }
 
 const TaskForm: React.FC<ITaskFormProps> = (active) => {
@@ -19,7 +20,7 @@ const TaskForm: React.FC<ITaskFormProps> = (active) => {
   } = useForm();
   return <form
     className="task-form"
-    onSubmit={handleSubmit((task) => {
+    onSubmit={handleSubmit((task:ITask) => {
       BoardStore.postTask(task, active.active);
     })}
   >
@@ -32,7 +33,6 @@ const TaskForm: React.FC<ITaskFormProps> = (active) => {
         type="text"
         className="task-form__field"
         placeholder="Enter text"
-        // name="Title"
         {...register('title', titleTaskValidation)}
       ></input>
     </div>
@@ -45,7 +45,6 @@ const TaskForm: React.FC<ITaskFormProps> = (active) => {
         type="text"
         className="task-form__field"
         placeholder="Enter text"
-        // name="Details"
         {...register('details', detailsTaskValidation)}
       ></input>
     </fieldset>

@@ -7,18 +7,18 @@ import { ListBody } from '../listBody';
 import { IColumn, ITask } from 'utils/interfaces';
 
 interface IListProps {
-  props: string,
+  title: string,
   setActive: (id: string) => void,
   tasks: ITask[],
   list: IColumn
 }
 
-const List: React.FC<IListProps> = ({ props, setActive, tasks, list }) => {
+const List: React.FC<IListProps> = ({ title, setActive, tasks, list }) => {
   return (
     <div className="list">
       <div className="list__title">
         <h2>
-          {props} ( {tasks.length} )
+          {title} ( {tasks.length} )
         </h2>
         <button
           onClick={() => {

@@ -1,10 +1,11 @@
 import { IColumn, ITask } from './../utils/interfaces';
 
 import {
-  changeCol,
+  changeColumn,
   changeTask, createTask, getTasks
 } from 'api/board';
 import { makeAutoObservable } from 'mobx';
+import { DraggableLocation } from 'react-beautiful-dnd';
 
 class BoardStore {
   columns: IColumn[] = []
@@ -14,7 +15,7 @@ class BoardStore {
     makeAutoObservable(this);
   }
 
-  dropBetweenColumns(source: any, destination: any) {
+  dropBetweenColumns(source: DraggableLocation, destination: DraggableLocation) {
     const sourceColumn = this.columns.find((el) =>
       el._id === source.droppableId);
     const destColumn = this.columns.find((el) =>
@@ -32,7 +33,7 @@ class BoardStore {
     }
   }
 
-  dropBetweenTasks(source: any, destination: any) {
+  dropBetweenTasks(source: DraggableLocation, destination: DraggableLocation) {
     const userTask = this.columns.find((el) =>
       el._id === destination.droppableId);
     if (userTask) {
@@ -47,7 +48,7 @@ class BoardStore {
 
   async changePriorityColumn(sourceItems: ITask[], sourceDrId: string,
     destItems: ITask[], destinationDrId: string) {
-    await changeCol(sourceItems, sourceDrId,
+    await changeColumn(sourceItems, sourceDrId,
       destItems, destinationDrId, this.projectId);
   }
 
@@ -55,11 +56,11 @@ class BoardStore {
     await changeTask(items, id, this.projectId);
   }
 
-  setColumns(value: any) {
+  setColumns(value: IColumn[]) {
     this.columns = value;
   }
 
-  async postTask(data: any, colId: any) {
+  async postTask(data: ITask, colId: string) {
     const newTask = await createTask(data, colId, this.projectId);
     if (newTask) {
       const findColumn = this.columns.find((el) => el._id === colId,

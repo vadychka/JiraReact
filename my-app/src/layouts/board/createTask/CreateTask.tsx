@@ -5,8 +5,8 @@ import { Button } from 'components/button';
 import TaskForm from '../taskForm';
 
 interface ICreateTaskProps {
-  active: string | null,
-  setActive: (arg: string | null) => void
+  active: string,
+  setActive: (arg: string) => void
 }
 
 
@@ -15,14 +15,14 @@ const CreateTask: React.FC<ICreateTaskProps> = ({ active, setActive }) => {
     <div
       className={active ? 'create-task' : 'create-task__active'}
       onClick={() => {
-        setActive(null);
+        setActive('');
       }}
     >
       <div className="create-task__content"
         onClick={(e) => e.stopPropagation()}>
         <Button
           onClickBtn={() => {
-            setActive(null);
+            setActive('');
           }}
         >
           Close
