@@ -4,6 +4,8 @@
    padding: 1em;
    &__name,
    &__def {
+      font-size: 18px;
+      background-color: white;
       cursor: pointer;
    }
 }

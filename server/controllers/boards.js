@@ -37,6 +37,7 @@ module.exports.getBoard = async (req,res) => {
 
 module.exports.addTasks = async (req, res) => {
    try{
+      
       const {tasks, id, boardId} = req.body
 
       if(req.body){
@@ -60,10 +61,8 @@ module.exports.dragTask = async (req, res) => {
    try{
       const {source, destination, columnId} = req.body
       if(req.body){
-         console.log(columnId)
          
          const selectedBoard = await Board.findOne({'projectId':columnId})
-         // console.log(selectedBoard)
          const selectedColumn = selectedBoard.column.find(el => String(el._id) === destination);
          selectedColumn.tasks = source
          await selectedBoard.save()

@@ -1,4 +1,3 @@
-const { generateUniqueId } = require("../helpers/idGenerator")
 const Project = require('../mongoModels/project');
 const { createBoard } = require("./boards");
 
@@ -33,7 +32,7 @@ module.exports.postProject = async (req,res)=>{
       createBoard(newProject._id)
       const projectId = newProject._id
 
-      res.status(200).json(project)
+      res.status(200).json(newProject)
       }
       else{
          res.status(400).json('invalid input')

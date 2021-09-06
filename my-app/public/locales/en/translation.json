@@ -1,0 +1,32 @@
+{
+   "header": {
+      "home": "Home",
+      "projects": "Projects",
+      "dashboard": "Dashboard",
+      "logout": "Log out"
+   },
+   "projects": {
+      "sortBy": "Sort by",
+      "add_project": "Add project",
+      "dashboard": "dashboard"
+   },
+   "dashboard": {
+      "to_do": "To do",
+      "in_process": "In process",
+      "done": "Done"
+   },
+   "log_in": {
+      "title": "Log in",
+      "name": "Name",
+      "password": "Password",
+      "button_log_in": "LOG IN",
+      "button_registration": "Registration"
+   },
+   "registration": {
+      "title": "Registration form",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "button_registration": "Registration"
+   }
+}
