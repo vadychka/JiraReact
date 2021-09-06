@@ -2,7 +2,7 @@ import './Board.scss';
 
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
-import { DragDropContext, DropResult } from 'react-beautiful-dnd';
+import { DragDropContext, DraggableLocation, DropResult } from 'react-beautiful-dnd';
 import { useHistory } from 'react-router';
 import { BoardStore } from 'store';
 import { Routes } from 'utils';
@@ -27,7 +27,7 @@ const Board: React.FC<IBoardProps> = ({ setActive }) => {
   if (!columns.length) {
     return null;
   }
-  const changeTasks = (source: any, destination: any) => {
+  const changeTasks = (source: DraggableLocation, destination: DraggableLocation | undefined) => {
     if (!destination) return;
     else if (source.droppableId !== destination.droppableId) {
       BoardStore.dropBetweenColumns(source, destination);

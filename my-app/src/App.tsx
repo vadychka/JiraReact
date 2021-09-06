@@ -26,8 +26,8 @@ function App() {
   const [popUpProject, setPopUpProject] = useState('');
 
   return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>} >
+    <Suspense fallback="loading">
+      <Router>
         <div className="app__wrapper" >
           <Header setIsActive={() => setIsActive(!isActive)} />
           < div className="main" >
@@ -51,8 +51,8 @@ function App() {
 
         </div>
         < ToasterHandler />
-      </Suspense>
-    </Router>
+      </Router>
+    </Suspense>
   );
 }
 

@@ -1,11 +1,13 @@
 import './HeaderLogOut.scss';
 
-import {Button} from 'components';
-import {useHistory} from 'react-router';
+import { Button } from 'components';
+import { useHistory } from 'react-router';
 import UserStore from 'store/UserStore';
-import {Routes} from 'utils';
+import { Routes } from 'utils';
+import { useTranslation } from 'react-i18next';
 
 const HeaderLogOut = () => {
+  const { t } = useTranslation()
   const history = useHistory();
   const logOut = () => {
     UserStore.logOut();
@@ -13,7 +15,7 @@ const HeaderLogOut = () => {
   };
   return (
     <div className='header-log-out'>
-      <Button onClickBtn={logOut}>Log out</Button>
+      <Button onClickBtn={logOut}>{t('header.logout')}</Button>
     </div>
   );
 };

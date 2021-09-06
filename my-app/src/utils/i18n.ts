@@ -1,28 +1,22 @@
 import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from "i18next-http-backend"
 import i18n from "i18next";
 import { initReactI18next } from 'react-i18next';
-import en from '../../public/locales/en/translation.json'
-import ru from '../../public/locales/ru/translation.json'
+import en from './locales/en/translation.json'
+import ru from './locales/ru/translation.json'
 
 
 export const defaultNS = 'en'
 export const resources = {
-  en: {
-    en,
-    ru,
-  },
-} as const;
-
-i18n.use(Backend)
+  en: { en }, ru: { ru }
+}
+i18n.use(initReactI18next)
   .use(LanguageDetector)
-  .use(initReactI18next)
   .init({
-    fallbackLng: 'ru',
+    lng: 'en',
     whitelist: ['en', 'ru'],
-    debug: false,
     defaultNS,
     resources,
+    interpolation: { escapeValue: false }
   })
 
-// export default i18n
+export default i18n
