@@ -18,7 +18,7 @@ class ProjectsStore {
   async postProject(data: IProject) {
     const project = await pushProject(data);
     if (project) {
-      this.projects.push(project);
+      this.projects.unshift(project);
     }
   }
   async getInitData() {
