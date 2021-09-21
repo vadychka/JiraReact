@@ -22,8 +22,8 @@
  
 ### Install NPM packages
 
+* npm i && npm run iDep
 * npm run dev 
-* npm run iDep 
 
 ## Screenshots:
 
