@@ -17,8 +17,9 @@
 ## Installation
 
 ### Clone the repo
- * git clone https://github.com/your_username_/Project-Name.git
 
+ * git clone https://github.com/vadychka/JiraReact.git
+ 
 ### Install NPM packages
 
 * npm run dev 
