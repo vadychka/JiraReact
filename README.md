@@ -3,7 +3,7 @@
 ## Technologies
 
 * Front-End
- * HTML/CSS(SCSS)
+ ** HTML/CSS(SCSS)
  * JS
  * React(UseForm, BeautifulDND, Toastify, i18next)
  * TypeScript
