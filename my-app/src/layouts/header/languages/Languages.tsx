@@ -1,15 +1,20 @@
 import { Button } from "components"
-import { useTranslation } from "react-i18next"
+import i18next from "i18next"
+import './Languages.scss'
 
 const Languages = () => {
-   const { t, i18n } = useTranslation()
    const changeLanguage = (lang: string) => {
-      i18n.changeLanguage(lang)
+      i18next.changeLanguage(lang)
    }
 
-   return <Button onClickBtn={() => changeLanguage('en')}>
-      En
-   </Button>
+   return <div className='header__languages'>
+      <Button onClickBtn={() => changeLanguage('en')}>
+         En
+      </Button>
+      <Button onClickBtn={() => changeLanguage('ru')}>
+         Ru
+      </Button>
+   </div>
 }
 
 export default Languages

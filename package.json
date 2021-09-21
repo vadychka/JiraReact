@@ -7,7 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "front": "cd my-app && npm run start",
     "back": "cd server && npm run server",
-    "dev": "concurrently \"npm run back\" \"npm run front\" "
+    "frontDep": "cd my-app && npm i",
+    "backDep": "cd server && npm i",
+    "dev": "concurrently \"npm run back\" \"npm run front\" ",
+    "iDep": "concurrently \"npm run backDep\" \"npm run frontDep\" "
   },
   "repository": {
     "type": "git",

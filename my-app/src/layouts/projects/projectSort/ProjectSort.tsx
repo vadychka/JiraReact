@@ -1,24 +1,21 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './ProjectSort.scss';
 
-const ProjectSort = () => {
-  const clickSort = (e: React.MouseEvent<HTMLButtonElement>) => {
+interface IProjectSortProps {
+  setProjects: (el: string) => void
+}
 
-    console.log(e)
-    if (e.currentTarget.style.color === 'lightblue') {
-      console.log(e)
-      return (e.currentTarget.style.color = 'black');
-    }
-    e.currentTarget.style.color = 'lightblue';
-  };
+const ProjectSort: React.FC<IProjectSortProps> = ({setProjects}) => {
+  const { t } = useTranslation()
   return (<div className="project-sort">
-    <p>Sort by : </p>
-    <button className={`project-sort__name `} onClick={clickSort}>
-      <p>&ensp; Name</p>
-    </button>
-    <button className={`project-sort__def `} onClick={clickSort}>
-      <p>&ensp; Default</p>
-    </button>
+    <p>{t('projects.sortBy')} </p>
+    <input
+      type="text"
+      className="project-sort__inp"
+      placeholder="&#128270;   Search"
+      onChange={(event) => setProjects(event.target.value)}
+    />
   </div>
   );
 };

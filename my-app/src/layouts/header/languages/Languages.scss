@@ -1,0 +1,6 @@
+.btn {
+   margin: 2px;
+   @media screen and (max-width: 479px) {
+      padding: 4px;
+   }
+}

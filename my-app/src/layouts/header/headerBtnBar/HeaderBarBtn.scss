@@ -43,4 +43,7 @@
       transform-origin: left top;
       width: 10px;
    }
+   @media (max-width: 767px) {
+      display: none;
+   }
 }
