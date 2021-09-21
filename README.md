@@ -27,8 +27,11 @@
 
 ## Screenshots:
 
- #### Login
-  ![Login](screenshots/Login.png)
-* Registration form
-* Projects
-* Board
+#### Login
+  ![](screenshots/Login.png)
+#### Registration form
+ ![](screenshots/Registration.png)
+#### Projects
+ ![](screenshots/Projects.png)
+#### Board
+ ![](screenshots/Board.png)
