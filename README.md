@@ -28,7 +28,7 @@
 ## Screenshots:
 
 * Login
-  ![](screenshots/Login.png)
+  (screenshots/Login.png)
 * Registration form
 * Projects
 * Board
