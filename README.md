@@ -28,6 +28,7 @@
 ## Screenshots:
 
 * Login
+  ![](screenshots/Login.png)
 * Registration form
 * Projects
 * Board
