@@ -4,16 +4,15 @@
 
 * Front-End
    * HTML/CSS(SCSS)
- * JS
- * React(UseForm, BeautifulDND, Toastify, i18next)
- * TypeScript
- * MobX
- * AJAX
- * EsLint
- * BEM
+   * JS
+   * React(UseForm, BeautifulDND, Toastify, i18next)
+   * TypeScript
+   * AJAX
+   * EsLint
+   * BEM
 * Back-End
- * Node JS
- * MongoDB
+   * Node JS
+   * MongoDB
 
 ## Installation
 
