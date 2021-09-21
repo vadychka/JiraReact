@@ -1,4 +1,0 @@
-
-export {getProjects} from './projects';
-
-
