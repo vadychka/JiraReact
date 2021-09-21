@@ -5,16 +5,22 @@ import en from './locales/en/translation.json'
 import ru from './locales/ru/translation.json'
 
 
-export const defaultNS = 'en'
+export const defaultNS = 'interface'
 export const resources = {
-  en: { en }, ru: { ru }
-}
+  en: {
+    interface: en
+  },
+  ru: {
+    interface: ru
+  },
+} as const;
 i18n.use(initReactI18next)
   .use(LanguageDetector)
   .init({
-    lng: 'en',
-    whitelist: ['en', 'ru'],
+    lng: 'ru',
+    fallbackLng: 'ru',
     defaultNS,
+    ns: ['interface'],
     resources,
     interpolation: { escapeValue: false }
   })

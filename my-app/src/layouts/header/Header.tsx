@@ -12,18 +12,24 @@ import HeaderLoginAndRegister from
 import HeaderLogOut from './headerLogOut/HeaderLogOut';
 import HeaderMenu from './headerMenu/HeaderMenu';
 import { Languages } from './languages';
+import Media from 'react-media';
 
 interface IHeaderProps {
   setIsActive: () => void
 }
 
-
 const Header: React.FC<IHeaderProps> = ({ setIsActive }) => {
-
   return (
     <div className={UserStore.user ? 'header' : 'header__close'}>
       <HeaderBarBtn onClick={setIsActive}></HeaderBarBtn>
-      <img src={logo} alt="img" className="header__logo" />
+      <Media queries={{
+        small: "(max-width: 479px)"
+      }}>
+        {matches => {
+          return matches ? <></> : <img src={logo} alt="img" className="header__logo" />
+        }}
+      </Media>
+      {/* <img src={logo} alt="img" className="header__logo" /> */}
       <HeaderMenu />
       <input
         type="text"

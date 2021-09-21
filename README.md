@@ -1,1 +1,1 @@
-# JiraReact
+# jira-react
