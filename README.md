@@ -5,7 +5,7 @@
 * Front-End
    * HTML/CSS(SCSS)
    * JS
-   * React(UseForm, BeautifulDND, Toastify, i18next)
+   * React(HookForm, BeautifulDND, Toastify, i18next)
    * TypeScript
    * AJAX
    * EsLint
