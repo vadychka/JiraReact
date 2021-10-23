@@ -1,5 +1,5 @@
 import './Board.scss';
-
+ 
 import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { DragDropContext, DraggableLocation, DropResult } from 'react-beautiful-dnd';
