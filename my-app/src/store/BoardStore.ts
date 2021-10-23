@@ -75,6 +75,6 @@ class BoardStore {
     const resTasks = await getTasks(projectId);
     this.setColumns(resTasks.column);
   }
-}
+} 
 
 export default new BoardStore();
