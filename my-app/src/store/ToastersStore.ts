@@ -16,6 +16,6 @@ class ToastersStore {
     }
     this.toasters.push(error);
   }
-}
+} 
 
 export default new ToastersStore();
