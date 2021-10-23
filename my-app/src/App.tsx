@@ -1,6 +1,6 @@
 import './App.scss';
 import 'constants';
-import './Appp.scss';
+import './Appp.scss'; 
 
 import ToasterHandler from 'components/toasts/ToasterHandler';
 import VerifyUser from 'components/verifyUser/VerifyUser';
