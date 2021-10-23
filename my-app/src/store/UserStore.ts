@@ -5,7 +5,7 @@ import { addUser, getUser } from '../api/users';
 import ToastersStore from './ToastersStore';
 
 const { makeAutoObservable } = require('mobx');
-
+ 
 
 class UserStore {
   user: IUser | null = null
