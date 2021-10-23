@@ -3,7 +3,6 @@ const { createBoard, getBoard, addTasks, dragTask, dragToColumn } = require('../
 const router =Router()
 
 
-
 router.get('/:id', getBoard)
 
 router.post('/', addTasks)
