@@ -1,7 +1,7 @@
 import './App.scss';
 import 'constants';
 import './Appp.scss'; 
-
+ 
 import ToasterHandler from 'components/toasts/ToasterHandler';
 import VerifyUser from 'components/verifyUser/VerifyUser';
 import CreateTask from 'layouts/board/createTask/CreateTask';
